@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Login.h"
 
 @implementation AppDelegate
 
@@ -16,11 +17,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    return YES;
+    
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    Login *controller = (Login *)navigationController.topViewController;
+    
+    UIColor * cg1 =[UIColor whiteColor] ;
+    UIColor * cg = [UIColor lightGrayColor];
+    [[UITabBar appearance] setTintColor:cg];
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      cg1, UITextAttributeTextColor,
+      [UIFont boldSystemFontOfSize:9.0], UITextAttributeFont,
+      [UIColor grayColor], UITextAttributeTextShadowColor,
+      nil] forState:UIControlStateNormal];
+    //    self.navigationController.navigationBar.tintColor = cg;
+    [[UINavigationBar appearance] setTintColor:cg];
+    [[UISearchBar appearance] setTintColor:cg];
+    
+    controller.managedObjectContext = self.managedObjectContext;
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -107,7 +128,7 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

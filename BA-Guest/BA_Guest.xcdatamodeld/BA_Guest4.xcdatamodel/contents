@@ -15,8 +15,6 @@
         <attribute name="realtorlastnm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="realtoryn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="refdate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="remail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="rphonenumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sendyn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="submityn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="webcommunitynm" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +24,7 @@
         <attribute name="pincode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Guest" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="Guest" positionX="160" positionY="192" width="128" height="300"/>
         <element name="Xpin" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

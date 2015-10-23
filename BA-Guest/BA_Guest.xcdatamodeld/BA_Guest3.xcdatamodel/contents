@@ -5,28 +5,21 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstNm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hearaboutus" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idarea" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idcia" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idsub" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idweb" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastNm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phonenumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="realtorfirstnm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="realtorlastnm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="realtoryn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="refdate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="remail" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="rphonenumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sendyn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="submityn" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="webcommunitynm" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Xpin" representedClassName="Xpin" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pincode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Guest" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="Guest" positionX="160" positionY="192" width="128" height="225"/>
         <element name="Xpin" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>
