@@ -38,7 +38,7 @@
     //    self.navigationController.navigationBar.tintColor = cg;
     [[UINavigationBar appearance] setTintColor:cg];
     [[UISearchBar appearance] setTintColor:cg];
-    
+   
     controller.managedObjectContext = self.managedObjectContext;
     return YES;
     
