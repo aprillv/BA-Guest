@@ -272,7 +272,7 @@
 //        [ntabbar setSelectedItem:nil];
     }else{
         int dw = searchtxt.frame.size.width;
-        int t=[rtnlist count]*44+44;
+        CGFloat t=[rtnlist count]*44+44;
         if (t>xh3-44) {
             t=xh3-44;
         }
@@ -284,6 +284,7 @@
         [self.view addSubview:ciatbview];
         ciatbview.delegate = self;
         ciatbview.dataSource = self;
+        ciatbview.separatorColor = [UIColor clearColor];
     }
 }
 
@@ -310,7 +311,7 @@
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-   
+//    return 1;
     return [rtnlist count]; // or self.items.count;
     
 }
@@ -329,6 +330,7 @@
     cell.webarea=cia.WebArea;
     cell.city=cia.City;
         cell.cianame=cia.CiaName;
+//    cell.webnm = @"april test ";
         return cell;
         
 }

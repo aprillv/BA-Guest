@@ -34,6 +34,12 @@
     label.backgroundColor=[UIColor colorWithRed:0.88 green:0.88 blue:0.88 alpha:1];
     //    label.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     [self.contentView addSubview: label];
+    
+    label = [[UILabel alloc] initWithFrame: CGRectMake( 0, 43, dw, 1)];
+    label.backgroundColor=[UIColor colorWithRed:0.88 green:0.88 blue:0.88 alpha:1];
+    //    label.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
+    [self.contentView addSubview: label];
+    
     tx=tx+3;
     
     UILabel* lblpname = [[UILabel alloc] initWithFrame: CGRectMake( tx, 0, dw*.2-2, 44)];
