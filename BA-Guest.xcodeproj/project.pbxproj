@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11C497471C6C54FA00A6F039 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C497461C6C54FA00A6F039 /* Images.xcassets */; };
+		11C497491C6C55E900A6F039 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C497481C6C55E900A6F039 /* Launch Screen.storyboard */; };
 		B10EC87218A31F520096EFA8 /* lovettlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B10EC87018A31F520096EFA8 /* lovettlogo.png */; };
 		B10EC87318A31F520096EFA8 /* intownlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B10EC87118A31F520096EFA8 /* intownlogo.png */; };
 		B10EC88818A331C50096EFA8 /* chked.png in Resources */ = {isa = PBXBuildFile; fileRef = B10EC88418A331C50096EFA8 /* chked.png */; };
@@ -20,8 +22,6 @@
 		B11DD63E1898F8AE00B8E627 /* repeatfirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B11DD63D1898F8AE00B8E627 /* repeatfirstCell.m */; };
 		B11E0A7318A0D45900C8400D /* findcommunity.m in Sources */ = {isa = PBXBuildFile; fileRef = B11E0A7118A0D45900C8400D /* findcommunity.m */; };
 		B11E0ACB18A0ECF900C8400D /* communitycell.m in Sources */ = {isa = PBXBuildFile; fileRef = B11E0ACA18A0ECF900C8400D /* communitycell.m */; };
-		B11E0ACD18A0F1D200C8400D /* top1.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E0ACC18A0F1D200C8400D /* top1.png */; };
-		B11E0ACF18A0F23400C8400D /* top1.gif in Resources */ = {isa = PBXBuildFile; fileRef = B11E0ACE18A0F23400C8400D /* top1.gif */; };
 		B11E0AD118A0F40200C8400D /* grayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B11E0AD018A0F40200C8400D /* grayButton.png */; };
 		B11FA59B18F3CE9800AF6C5B /* wcfServiceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FA55F18F3CE9700AF6C5B /* wcfServiceExample.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B11FA59C18F3CE9800AF6C5B /* Soap+Prefix.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FA56218F3CE9700AF6C5B /* Soap+Prefix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -118,6 +118,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11C497461C6C54FA00A6F039 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		11C497481C6C55E900A6F039 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B10EC87018A31F520096EFA8 /* lovettlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lovettlogo.png; sourceTree = "<group>"; };
 		B10EC87118A31F520096EFA8 /* intownlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intownlogo.png; sourceTree = "<group>"; };
 		B10EC88418A331C50096EFA8 /* chked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chked.png; sourceTree = "<group>"; };
@@ -137,8 +139,6 @@
 		B11E0A7218A0D45900C8400D /* findcommunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = findcommunity.h; sourceTree = "<group>"; };
 		B11E0AC918A0ECF900C8400D /* communitycell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = communitycell.h; sourceTree = "<group>"; };
 		B11E0ACA18A0ECF900C8400D /* communitycell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = communitycell.m; sourceTree = "<group>"; };
-		B11E0ACC18A0F1D200C8400D /* top1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top1.png; sourceTree = "<group>"; };
-		B11E0ACE18A0F23400C8400D /* top1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = top1.gif; sourceTree = "<group>"; };
 		B11E0AD018A0F40200C8400D /* grayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayButton.png; sourceTree = "<group>"; };
 		B11FA55B18F3C5A400AF6C5B /* BA_GuestI2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BA_GuestI2.xcdatamodel; sourceTree = "<group>"; };
 		B11FA55E18F3CE9700AF6C5B /* wcfServiceExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wcfServiceExample.h; sourceTree = "<group>"; };
@@ -515,6 +515,8 @@
 				B12D1E701880D3C0004C8CF0 /* AppDelegate.h */,
 				B12D1E711880D3C0004C8CF0 /* AppDelegate.m */,
 				B12D1E791880D3C0004C8CF0 /* BA_Guest.xcdatamodeld */,
+				11C497461C6C54FA00A6F039 /* Images.xcassets */,
+				11C497481C6C55E900A6F039 /* Launch Screen.storyboard */,
 			);
 			path = "BA-Guest";
 			sourceTree = "<group>";
@@ -621,8 +623,6 @@
 				B10EC87018A31F520096EFA8 /* lovettlogo.png */,
 				B10EC87118A31F520096EFA8 /* intownlogo.png */,
 				B11E0AD018A0F40200C8400D /* grayButton.png */,
-				B11E0ACE18A0F23400C8400D /* top1.gif */,
-				B11E0ACC18A0F1D200C8400D /* top1.png */,
 				B1275C89188669D800943CB0 /* back1.png */,
 				B1BC6685188131970042B638 /* ba.png */,
 				B1BC66831881315F0042B638 /* zoom2.png */,
@@ -702,6 +702,8 @@
 				B12D1F421880D562004C8CF0 /* error.png in Resources */,
 				B12D1F431880D562004C8CF0 /* failedBg.psd in Resources */,
 				B12D1F451880D562004C8CF0 /* papasscode_background.png in Resources */,
+				11C497471C6C54FA00A6F039 /* Images.xcassets in Resources */,
+				11C497491C6C55E900A6F039 /* Launch Screen.storyboard in Resources */,
 				B12D1F461880D562004C8CF0 /* papasscode_background@2x.png in Resources */,
 				B12D1F471880D562004C8CF0 /* papasscode_failed_bg.png in Resources */,
 				B12D1F481880D562004C8CF0 /* papasscode_failed_bg@2x.png in Resources */,
@@ -720,8 +722,6 @@
 				B1BC6686188131980042B638 /* ba.png in Resources */,
 				B1BC6688188134EE0042B638 /* builderaccess-logo-4.png in Resources */,
 				B1275C8A188669D800943CB0 /* back1.png in Resources */,
-				B11E0ACD18A0F1D200C8400D /* top1.png in Resources */,
-				B11E0ACF18A0F23400C8400D /* top1.gif in Resources */,
 				B11E0AD118A0F40200C8400D /* grayButton.png in Resources */,
 				B10EC87218A31F520096EFA8 /* lovettlogo.png in Resources */,
 				B10EC87318A31F520096EFA8 /* intownlogo.png in Resources */,
@@ -891,8 +891,9 @@
 		B12D1E7F1880D3C0004C8CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: EloveIT, Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BA-Guest/BA-Guest-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -900,7 +901,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
 				WRAPPER_EXTENSION = app;
 			};
@@ -909,8 +910,9 @@
 		B12D1E801880D3C0004C8CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: EloveIT, Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BA-Guest/BA-Guest-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -918,7 +920,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
 				WRAPPER_EXTENSION = app;
 			};

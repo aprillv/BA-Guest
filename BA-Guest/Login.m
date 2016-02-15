@@ -34,6 +34,11 @@
 #define SLIDE_DURATION  0.3
 
 @interface Login ()<UITextFieldDelegate, UIAlertViewDelegate, CustomKeyboardDelegate, MBProgressHUDDelegate>
+@property (strong, nonatomic) IBOutlet UIView *backView;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIButton *LoginBtn;
+@property (strong, nonatomic) IBOutlet UISwitch *rememberSwitch;
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @end
 
 
@@ -42,22 +47,20 @@
     NSString     *name;
     NSString                     *pwd;
     BOOL transiting;
-//    BOOL isenter;
-    
-//    UISwitch *switchView;
-    UITextField         *usernameField;
-    UITextField         *passwordField;
+
     CustomKeyboard *keyboard;
     MBProgressHUD *HUD;
     
     //for syncronize
     int curentindex;
     NSMutableArray *rtnlist;
-    UIButton *checkButton;
+//    UIButton *checkButton;
     
-    BOOL ischecked;
+//    BOOL ischecked;
     UIScrollView *sv;
 }
+
+@synthesize usernameField, passwordField, LoginBtn;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -65,7 +68,27 @@
     self.navigationController.navigationBarHidden=YES;
     self.title=@"Guest Registration";
     
-    [self doInitPage];
+   
+//    backView.backgroundColor = UIColor.whiteColor()
+//    backView.layer.borderColor = CConstants.BorderColor.CGColor
+//    backView.layer.borderWidth = 1.0
+//    backView.layer.cornerRadius = 8
+    
+//    self.backView.layer.borderWidth = 1.0f;
+//    self.backView.layer.cornerRadius = 8;
+//    self.backView.layer.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1].CGColor;
+    
+    self.backView.layer.borderColor = [[UIColor alloc]initWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1].CGColor;
+    self.backView.layer.borderWidth = 1;
+    
+    self.rememberSwitch.transform = CGAffineTransformMakeScale(0.9, 0.9);
+    
+    self.backView.layer.shadowColor = [[UIColor alloc]initWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1].CGColor;
+    self.backView.layer.shadowOpacity = 1;
+    self.backView.layer.shadowRadius = 8.0;
+    self.backView.layer.shadowOffset = CGSizeMake(1, 0);
+    
+    self.LoginBtn.layer.cornerRadius = 5;
     
 	NSString *filePath = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
@@ -77,12 +100,15 @@
         name=usernameField.text;
         
 		passwordField.text = @"******";
-		ischecked=YES;
-         [checkButton setImage: [UIImage imageNamed:@"chked.png"] forState:UIControlStateNormal];
+//		ischecked=YES;
+//         [checkButton setImage: [UIImage imageNamed:@"chked.png"] forState:UIControlStateNormal];
+        self.rememberSwitch.on = YES;
     }else{
-    ischecked=NO;
-          [checkButton setImage: [UIImage imageNamed:@"chk.png"] forState:UIControlStateNormal];
+        self.rememberSwitch.on = NO;
+//    ischecked=NO;
+//          [checkButton setImage: [UIImage imageNamed:@"chk.png"] forState:UIControlStateNormal];
     }
+    self.LoginBtn.enabled = YES;
     
     UIColor * cg1 =[UIColor whiteColor] ;
     
@@ -91,23 +117,23 @@
     //
     [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      cg1, UITextAttributeTextColor,
-      [UIFont boldSystemFontOfSize:9.0], UITextAttributeFont,
-      [UIColor darkGrayColor], UITextAttributeTextShadowColor,
+      cg1, NSForegroundColorAttributeName,
+      [UIFont boldSystemFontOfSize:9.0], NSFontAttributeName,
+      [UIColor darkGrayColor], NSShadowAttributeName,
       nil] forState:UIControlStateNormal];
     
     [[UIToolbar appearance] setTintColor:cg];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [[UISearchBar appearance] setTintColor:cg];
-    keyboard=[[CustomKeyboard alloc]init];
-    keyboard.delegate=self;
-    [usernameField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:NO :TRUE]];
-    usernameField.delegate=self;
-    passwordField.delegate=self;
-    usernameField.returnKeyType=UIReturnKeyDone;
-    passwordField.returnKeyType=UIReturnKeyDone;
-    [passwordField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:TRUE :NO]];
+//    keyboard=[[CustomKeyboard alloc]init];
+//    keyboard.delegate=self;
+//    [usernameField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:NO :TRUE]];
+//    usernameField.delegate=self;
+//    passwordField.delegate=self;
+//    usernameField.returnKeyType=UIReturnKeyDone;
+//    passwordField.returnKeyType=UIReturnKeyDone;
+//    [passwordField setInputAccessoryView:[keyboard getToolbarWithPrevNextDone:TRUE :NO]];
     
 //    isenter=YES;
 }
@@ -122,9 +148,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 //    self.navigationController.navigationBarHidden=NO;
-    if (!ischecked) {
-        passwordField.text=@"";
-    }
+//    if (!ischecked) {
+//        passwordField.text=@"";
+//    }
     transiting=NO;
 }
 
@@ -145,147 +171,17 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;{
-    [self login:nil];
-    return NO;
-}
-
--(void)doInitPage{
-    
-    
-    int x;
-    int y;
-    int xw;
-    int xh;
-    int xx;
-//    NSLog(@"%f -- %f", self.view.frame.size.width, self.view.frame.size.height);
-    if (self.view.bounds.size.width==748.0f) {
-        xx =135;
-        xw= self.view.bounds.size.height;
-        xh=self.view.bounds.size.width+1;
+    if (textField == passwordField) {
+        [usernameField resignFirstResponder];
+        [self login:nil];
     }else{
-        xx =112;
-        xw= self.view.bounds.size.width;
-        xh=self.view.bounds.size.height+1;
+        [passwordField becomeFirstResponder];
     }
     
-    baControl *bc =[[baControl alloc]init];
-    self.view=[bc GetCommenFrame1:xw andxh:xh];
-    UIScrollView *v3=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 160, xw, xh-185)];
-    [self.view addSubview:v3];
-    sv=v3;
-    
-    y=30;
-    x=15;
-    sv.contentSize=CGSizeMake(xw,xh-183);
-    
-    UILabel *lbl;
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(xx+320, y, 544, 21)];
-    lbl.text=@"Members Login";
-    lbl.font=[UIFont boldSystemFontOfSize:18.0];
-    [sv addSubview:lbl];
-    y=y+61+x;
-    
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 544, 21)];
-    lbl.text=@"Email";
-    [sv addSubview:lbl];
-    lbl =[[UILabel alloc]initWithFrame:CGRectMake(xx+400, y, 544, 21)];
-    lbl.text=@"Password";
-    [sv addSubview:lbl];
-    y=y+21+x;
-
-    
-   UITextField * emailField=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 350, 40)];
-    [emailField setBorderStyle:UITextBorderStyleRoundedRect];
-    //    [emailField setBorderStyle:UITextBorderStyleNone];
-    //    emailField.layer.cornerRadius=0.0f;
-    //    emailField.layer.masksToBounds=YES;
-    //    emailField.layer.borderColor=[[UIColor grayColor]CGColor];
-    //    emailField.layer.borderWidth= 3.0f;
-    emailField.enabled=NO;
-    [sv addSubview: emailField];
-    
-    usernameField=[[UITextField alloc]initWithFrame:CGRectMake(xx+3, y+9, 344, 31)];
-//    [usernameField setBorderStyle:UITextBorderStyleRoundedRect];
-      [usernameField setBorderStyle:UITextBorderStyleNone];
-    [usernameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    usernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    usernameField.keyboardType=UIKeyboardTypeEmailAddress;
-    [sv addSubview: usernameField];
-   [usernameField addTarget:self action:@selector(dddddddd:) forControlEvents:UIControlEventEditingDidBegin];
-    
-    emailField=[[UITextField alloc]initWithFrame:CGRectMake(xx+400, y, 350, 40)];
-    [emailField setBorderStyle:UITextBorderStyleRoundedRect];
-    //    [emailField setBorderStyle:UITextBorderStyleNone];
-    //    emailField.layer.cornerRadius=0.0f;
-    //    emailField.layer.masksToBounds=YES;
-    //    emailField.layer.borderColor=[[UIColor grayColor]CGColor];
-    //    emailField.layer.borderWidth= 3.0f;
-    emailField.enabled=NO;
-    
-    [sv addSubview: emailField];
-    
-    passwordField=[[UITextField alloc]initWithFrame:CGRectMake(xx+403, y+9, 344, 31)];
-    [passwordField addTarget:self action:@selector(dddddddd:) forControlEvents:UIControlEventEditingDidBegin];
-//    [passwordField setBorderStyle:UITextBorderStyleRoundedRect];
-     [passwordField setBorderStyle:UITextBorderStyleNone];
-    [passwordField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [passwordField setSecureTextEntry:YES];
-    [sv addSubview: passwordField];
-    y=y+55+x;
-    
-//    UITextField *text1=[[UITextField alloc]initWithFrame:CGRectMake(xx, y-3, 350, 44)];
-//    [text1 setBorderStyle:UITextBorderStyleRoundedRect];
-//    text1.enabled=NO;
-//    text1.text=@"";
-//    [sv addSubview: text1];
-    
-    checkButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    [checkButton setFrame:CGRectMake(xx, y, 50, 40)];
-    [checkButton addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventTouchDown];
-    [checkButton setImageEdgeInsets:UIEdgeInsetsMake(2.0, -10.0, 5.0, 5.0)];
-  
-    [checkButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0, 0.0, 5.0, 5.0)];
-    [checkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    //     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-    ischecked=YES;
-    [checkButton setTitle:@"" forState:UIControlStateNormal];
-    [sv addSubview:checkButton];
-    
-//    lbl =[[UILabel alloc]initWithFrame:CGRectMake(xx+55, y+8, 120, 21)];
-//    lbl.text=@"Remember Me";
-//    [sv addSubview:lbl];
-    
-    UIButton *tt=[UIButton buttonWithType:UIButtonTypeCustom];
-    [tt setFrame:CGRectMake(xx+45, y, 295, 44)];
-  
-    [tt setTitleColor: [UIColor blackColor] forState:UIControlStateNormal ];
-//    [tt.titleLabel setTextAlignment:NSTextAlignmentLeft];
-//    [tt.titleLabel setText:@" Remember Me"];
-    [tt setTitle:@"Remember Me                                   " forState:UIControlStateNormal];
-       [tt addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventTouchDown];
-    [sv addSubview:tt];
-    
-//    switchView= [[UISwitch alloc] initWithFrame:CGRectMake(xx+117, y+4, 100.0f, 28.0f)];
-//    ischecked = NO;
-//    [sv addSubview:switchView];
-//    [switchView addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventValueChanged];
-    
-    UIButton *btn1 = [bc getButton:[UIColor grayColor] andrect:CGRectMake(0, 0, 150, 44)];
-    [btn1 setFrame:CGRectMake(xx+600, y, 150, 44)];
-    [btn1 setTitle:@"Login" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchDown];
-    [sv addSubview:btn1];
-    y=y+50+x;
-    
-//    btn1=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [btn1 setFrame:CGRectMake(xx, y, 182, 44)];
-//
-//    [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-//    [btn1 setTitle:@"Forgot Your Password" forState:UIControlStateNormal];
-//    [btn1 addTarget:self action:@selector(ForgotPasOnclick:) forControlEvents:UIControlEventTouchDown];
-//    [sv addSubview:btn1];
-    
+    return YES;
 }
+
+
 -(IBAction)dddddddd:(id)sender{
     
     [sv setContentOffset:CGPointMake(0,80) animated:YES];
@@ -324,31 +220,18 @@
         [self.navigationController pushViewController:fp animated:YES];
     }
 }
-
-- (IBAction) CheckboxClicked : (id) sender{
-    if (!ischecked)  {
+- (IBAction)rememberMeChange:(UISwitch *)sender {
+    if (!sender.on) {
+        NSString *filePath = [self dataFilePath];
+        if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]) {
+            NSError* error;
+            [[NSFileManager defaultManager]removeItemAtPath:filePath error:&error];
+        }
         
-        ischecked=YES;
-        [checkButton setImage:[UIImage imageNamed:@"chked.png"] forState:UIControlStateNormal];
+        passwordField.text=@"";
         
-      
-
-       	}else {
-            ischecked=NO;
-            [checkButton setImage:[UIImage imageNamed:@"chk.png"] forState:UIControlStateNormal];
-            
-            NSString *filePath = [self dataFilePath];
-            if ([[NSFileManager defaultManager]fileExistsAtPath:filePath]) {
-                NSError* error;
-                [[NSFileManager defaultManager]removeItemAtPath:filePath error:&error];
-            }
-            
-            passwordField.text=@"";
-            
-            [self deletealldata];
-
-                    
-	}
+        [self deletealldata];
+    }
 }
 
 -(void)deletealldata{
@@ -361,6 +244,8 @@
     [mf3 deleteData];    
 }
 - (IBAction) login: (UIButton *) sender{
+    [usernameField resignFirstResponder];
+    [passwordField resignFirstResponder];
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
     HUD.labelText=@"   Login...   ";
@@ -554,7 +439,7 @@
             myMD5Pas = [Mysql md5:pass_word];
         }
         
-        if (ischecked) {
+        if (self.rememberSwitch.on) {
             
             if (pwd == nil) {
                 [self creatFiles:myMD5Pas];

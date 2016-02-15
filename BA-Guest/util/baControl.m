@@ -86,11 +86,11 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 
 
 -(UIView *)GetCommenFrame1: (float)xw andxh: (float)xh{
-    return [self GetCommenFrame:xw andxh:xh andimg:@"top1.gif" andtitle:@"Guest Registration"];
+    return [self GetCommenFrame:xw andxh:xh andimg:@"top" andtitle:@"Guest Registration"];
 }
 
 -(UIView *)GetCommenFrame2: (float)xw andxh: (float)xh{
-    return [self GetCommenFrame:xw andxh:xh andimg:@"top1.gif" andtitle:@"Future Resident Registration"];
+    return [self GetCommenFrame:xw andxh:xh andimg:@"top" andtitle:@"Future Resident Registration"];
 }
 
 
@@ -137,8 +137,9 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     [aaaa addSubview:v2];
     
     UILabel *lbl=[[UILabel alloc]initWithFrame:CGRectMake(10, 2, xw-20, 40)];
-    lbl.text=@"Copyright © 2014 All Rights Reserved";
+    lbl.text=@"Copyright (c) 2016 Lovetthomes. All rights reserved.";
     lbl.font=[UIFont systemFontOfSize:14.0f];
+    lbl.textAlignment = NSTextAlignmentCenter;
     lbl.backgroundColor=[UIColor clearColor];
     [v2 addSubview:lbl];
     
