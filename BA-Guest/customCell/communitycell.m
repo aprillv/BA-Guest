@@ -40,8 +40,7 @@
     //    label.autoresizingMask=UIViewAutoresizingFlexibleLeftMargin;
     [self.contentView addSubview: label];
     
-    tx=tx+3;
-    
+    tx = tx+3;
     UILabel* lblpname = [[UILabel alloc] initWithFrame: CGRectMake( tx, 0, dw*.2-2, 44)];
     lblpname.text=cianame;
     //    lblpname.autoresizingMask=UIViewAutoresizingFlexibleWidth;

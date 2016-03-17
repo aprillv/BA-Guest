@@ -20,8 +20,13 @@
 #import "communitycell.h"
 #import "communityfirstcell.h"
 #import "baControl.h"
+#import "BA_Guest-Swift.h"
 
 @interface findcommunity ()<CustomKeyboardDelegate, UISearchBarDelegate, communityfirstcellDelegate, UITableViewDataSource, UITableViewDelegate, MBProgressHUDDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *ciatbview;
+//@property (strong, nonatomic) IBOutlet UISearchBar *searchtxt;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *viewheight;
+@property (strong, nonatomic) IBOutlet UITextField *txtField;
 
 @end
 
@@ -29,8 +34,6 @@
     MBProgressHUD *HUD;
     CustomKeyboard *keyboard;
     NSString *idguest;
-    UITableView *ciatbview;
-    UISearchBar *searchtxt;
     UIScrollView *uv;
     communityfirstcell *cell2;
     int xh3;
@@ -54,63 +57,55 @@
 {
     [super viewDidLoad];
     
+    self.viewheight.constant = 1.0 / [UIScreen mainScreen].scale;
+    self.txtField.text = @"";
+    self.txtField.placeholder = @"Search";
+    self.txtField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.txtField.layer.cornerRadius = 5.0f;
+    self.txtField.leftViewMode = UITextFieldViewModeAlways;
+    self.txtField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.txtField];
+    
     self.title=@"Find a Community";
     [self.navigationItem setHidesBackButton:YES];
     self.view.backgroundColor=[UIColor whiteColor];
     [self doInit];
     rtnlist1=rtnlist;
     
-    
-    int xw;
-    int xh;
-    int xx;
-    if (self.view.bounds.size.width==748.0f) {
-        xx =135;
-        xw= self.view.bounds.size.height;
-        xh=self.view.bounds.size.width+1;
-    }else{
-        xx =112;
-        xw= self.view.bounds.size.width;
-        xh=self.view.bounds.size.height+1;
-    }
-    
-       baControl *bc =[[baControl alloc]init];
-    UIButton *logoutbtn =[bc getButton:[UIColor grayColor] andrect:CGRectMake(0, 0, 130, 40)];
-    logoutbtn.frame=CGRectMake(xw-150, 25, 130, 40);
-    [logoutbtn setTitle:@"Logout" forState:UIControlStateNormal];
-    [logoutbtn addTarget:self action:@selector(dologout:) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:logoutbtn];
-    
-    searchtxt.autoresizingMask=UIViewAutoresizingFlexibleWidth;
-    searchtxt.delegate=self;
-    keyboard=[[CustomKeyboard alloc]init];
-    keyboard.delegate=self;
-    [searchtxt setInputAccessoryView:[keyboard getToolbarWithDone]];    
     [self dorefresh:nil];
     
 }
 
 
--(void)doInit{
-    int xw;
-    int xh;
-    int xx;
-    if (self.view.bounds.size.width==748.0f) {
-        xx =150;
-        xw= self.view.bounds.size.height;
-        xh=self.view.bounds.size.width+1;
-    }else{
-        xx =112;
-        xw= self.view.bounds.size.width;
-        xh=self.view.bounds.size.height+1;
-    }
+-(void)textFieldDidChange:(NSNotification *)notifications{
+    NSString *str;
+    str=[NSString stringWithFormat:@"IdCia like '%@*' or WebCommunity like [c]'*%@*' or WebArea like [c]'*%@*' or City like [c]'*%@*' or CiaName like [c]'*%@*'", self.txtField.text, self.txtField.text, self.txtField.text, self.txtField.text, self.txtField.text];
     
-    xh3=xh-205;   
-    baControl *bc =[[baControl alloc]init];
-    self.view=[bc GetCommenFrame2:xw andxh:xh];
-    searchtxt=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 140, xw, 44)];
-    [self.view addSubview:searchtxt];
-    searchtxt.delegate=self;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: str];
+    rtnlist=[[rtnlist1 filteredArrayUsingPredicate:predicate] mutableCopy];
+    [self.ciatbview reloadData];
+}
+
+-(void)doInit{
+//    int xw;
+//    int xh;
+//    int xx;
+//    if (self.view.bounds.size.width==748.0f) {
+//        xx =150;
+//        xw= self.view.bounds.size.height;
+//        xh=self.view.bounds.size.width+1;
+//    }else{
+//        xx =112;
+//        xw= self.view.bounds.size.width;
+//        xh=self.view.bounds.size.height+1;
+//    }
+//    
+//    xh3=xh-205;   
+//    baControl *bc =[[baControl alloc]init];
+//    self.view=[bc GetCommenFrame2:xw andxh:xh];
+//    searchtxt=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 140, xw, 44)];
+//    [self.view addSubview:searchtxt];
+//    searchtxt.delegate=self;
     
 
 }
@@ -127,25 +122,13 @@
 
 
 - (void)doneClicked{
-    [searchtxt resignFirstResponder];
+    [self.txtField resignFirstResponder];
 }
 
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    [searchtxt resignFirstResponder];
+    [self.txtField resignFirstResponder];
 }
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
-    UITableView *tbview=(UITableView *)[self.view viewWithTag:2];
-    
-    NSString *str;
-    str=[NSString stringWithFormat:@"IdCia like '%@*' or WebCommunity like [c]'*%@*' or WebArea like [c]'*%@*' or City like [c]'*%@*' or CiaName like [c]'*%@*'", searchtxt.text, searchtxt.text, searchtxt.text, searchtxt.text, searchtxt.text];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat: str];
-    rtnlist=[[rtnlist1 filteredArrayUsingPredicate:predicate] mutableCopy];
-    [tbview reloadData];
-    
-}
 
 
 -(IBAction)dorefresh:(id)sender{
@@ -216,11 +199,11 @@
                 [service xGetCommunity:self action:@selector(xGetMasterCiaHandler:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] EquipmentType: @"3"];
             }
         }else if(donext==2){
-            NSIndexPath *indexPath = [ciatbview indexPathForSelectedRow];
+            NSIndexPath *indexPath = [self.ciatbview indexPathForSelectedRow];
             
-            [ciatbview deselectRowAtIndexPath:indexPath animated:YES];
+            [self.ciatbview deselectRowAtIndexPath:indexPath animated:YES];
             wcfCommunityItem *ci =[rtnlist objectAtIndex:indexPath.row];
-            select1 *tt = [select1 alloc];
+            select1 *tt = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"select1"];
             tt.managedObjectContext=self.managedObjectContext;
             tt.idweb=ci.IdWeb;
             tt.idcia=ci.IdCia;
@@ -236,7 +219,15 @@
     
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 
 - (void) xGetMasterCiaHandler: (id) value {
     [HUD hide];
@@ -266,71 +257,55 @@
     rtnlist= [cg toMutableArray];
     rtnlist1=rtnlist;
    
-    if (ciatbview) {
-        searchtxt.text=@"";
-        [ciatbview reloadData];
+//    if (ciatbview) {
+        self.txtField.text=@"";
+        [self.ciatbview reloadData];
 //        [ntabbar setSelectedItem:nil];
-    }else{
-        int dw = searchtxt.frame.size.width;
-        CGFloat t=[rtnlist count]*44+44;
-        if (t>xh3-44) {
-            t=xh3-44;
-        }
-        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0,184, dw, t)];
-       
-        ciatbview.autoresizingMask=UIViewAutoresizingFlexibleWidth;
-        ciatbview.tag=2;
-        ciatbview.rowHeight=44;
-        [self.view addSubview:ciatbview];
-        ciatbview.delegate = self;
-        ciatbview.dataSource = self;
-        ciatbview.separatorColor = [UIColor clearColor];
-    }
+//    }else{
+//        int dw = searchtxt.frame.size.width;
+//        CGFloat t=[rtnlist count]*44+44;
+//        if (t>xh3-44) {
+//            t=xh3-44;
+//        }
+//        ciatbview=[[UITableView alloc] initWithFrame:CGRectMake(0,184, dw, t)];
+//       
+//        ciatbview.autoresizingMask=UIViewAutoresizingFlexibleWidth;
+//        ciatbview.tag=2;
+//        ciatbview.rowHeight=44;
+//        [self.view addSubview:ciatbview];
+//        ciatbview.delegate = self;
+//        ciatbview.dataSource = self;
+//        ciatbview.separatorColor = [UIColor clearColor];
+//    }
 }
 
 
 #pragma mark - TableView Methods
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (tableView.tag==1) {return 0;}else{
-        return 44.0f;}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{ if (tableView.tag==1) {
-    return nil;
-}else{
-    if (!cell2) {
-        cell2 = [[communityfirstcell alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
-        cell2.accessoryType = UITableViewCellAccessoryNone;
-        cell2.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell2.delegate=self;
-    }
-    return cell2;
-}
+{
+    return [tableView dequeueReusableCellWithIdentifier:@"headCell"];
+   
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return 1;
+
     return [rtnlist count]; // or self.items.count;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
-        static NSString *CellIdentifier = @"Cell";
+        static NSString *CellIdentifier = @"communityCell";
         
-        communitycell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell = [[communitycell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        communityCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        wcfCommunityItem *cia =[rtnlist objectAtIndex:indexPath.row];
-        cell.idcia=cia.IdCia;
-    cell.webnm=cia.WebCommunity;
-    cell.webarea=cia.WebArea;
-    cell.city=cia.City;
-        cell.cianame=cia.CiaName;
-//    cell.webnm = @"april test ";
+        wcfCommunityItem *item =[rtnlist objectAtIndex:indexPath.row];
+    [cell setCellContent:item];
         return cell;
         
 }
@@ -350,12 +325,12 @@
         
         
     }];
-    [ciatbview reloadData];
+    [self.ciatbview reloadData];
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [self.txtField resignFirstResponder];
     Reachability* curReach  = [Reachability reachabilityWithHostName: @"ws.buildersaccess.com"];
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
     if (netStatus ==NotReachable) {

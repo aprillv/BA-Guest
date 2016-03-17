@@ -26,19 +26,21 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     Login *controller = (Login *)navigationController.topViewController;
     
-    UIColor * cg1 =[UIColor whiteColor] ;
-    UIColor * cg = [UIColor lightGrayColor];
-    [[UITabBar appearance] setTintColor:cg];
-    [[UITabBarItem appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      cg1, UITextAttributeTextColor,
-      [UIFont boldSystemFontOfSize:9.0], UITextAttributeFont,
-      [UIColor grayColor], UITextAttributeTextShadowColor,
-      nil] forState:UIControlStateNormal];
-    //    self.navigationController.navigationBar.tintColor = cg;
-    [[UINavigationBar appearance] setTintColor:cg];
-    [[UISearchBar appearance] setTintColor:cg];
+//    UIColor * cg1 =[UIColor whiteColor] ;
+//    UIColor * cg = [UIColor lightGrayColor];
+//    [[UITabBar appearance] setTintColor:cg];
+//    [[UITabBarItem appearance] setTitleTextAttributes:
+//     [NSDictionary dictionaryWithObjectsAndKeys:
+//      cg1, NSForegroundColorAttributeName,
+//      [UIFont boldSystemFontOfSize:9.0], NSFontAttributeName,
+//      [UIColor whiteColor], NSShadowAttributeName,
+//      nil] forState:UIControlStateNormal];
+//    //    self.navigationController.navigationBar.tintColor = cg;
+//    [[UINavigationBar appearance] setTintColor:cg];
+//    [[UISearchBar appearance] setTintColor:cg];
    
+//    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName: @"Futura" size:17.0], NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateNormal];
+    
     controller.managedObjectContext = self.managedObjectContext;
     return YES;
     

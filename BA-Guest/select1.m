@@ -12,6 +12,12 @@
 #import "baControl.h"
 
 @interface select1 ()
+@property (strong, nonatomic) IBOutlet UILabel *communityLbl;
+@property (strong, nonatomic) IBOutlet UIButton *NewGuestBtn;
+@property (strong, nonatomic) IBOutlet UIButton *ReturnGuestBtn;
+@property (strong, nonatomic) IBOutlet UILabel *ThanksLbl;
+@property (strong, nonatomic) IBOutlet UIImageView *cialogo;
+@property (strong, nonatomic) IBOutlet UIButton *logoutBtn;
 
 @end
 
@@ -20,21 +26,29 @@
 }
 @synthesize idcia, idweb, cianm, commnunitynm, idarea, idsub;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.title = commnunitynm;
     
-    [self doInitPage];
+//    [self doInitPage];
+    if ([idcia isEqualToString:@"100"]) {
+        self.cialogo.image = [UIImage imageNamed:@"Lovetthomes-LOGO"];
+    }else{
+        self.cialogo.image = [UIImage imageNamed:@"InTownHomes-LOGO"];
+    }
+    self.ThanksLbl.text = commnunitynm;
+    self.NewGuestBtn.layer.cornerRadius = 25.0f;
+    self.ReturnGuestBtn.layer.cornerRadius = 25.f;
+    self.logoutBtn.backgroundColor = [[UIColor alloc] initWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
+    self.logoutBtn.layer.cornerRadius =8.0f;
+    [self.logoutBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.logoutBtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+}
+- (IBAction)goBack:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)doInitPage{
@@ -101,6 +115,12 @@
     
     
 }
+- (IBAction)CreateNewGuest:(id)sender {
+    [self donewguest];
+}
+- (IBAction)ReturnGuest:(id)sender {
+    [self login: nil];
+}
 
 -(void)donewguest{
     donext=1;
@@ -126,7 +146,7 @@
     if (donext==3) {
         [self.navigationController popToRootViewControllerAnimated:NO];
     }else if(donext==2){
-        select2 *tt = [select2 alloc];
+        select2 *tt = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"select2"];
         tt.managedObjectContext=self.managedObjectContext;
         tt.idweb=self.idweb;
         tt.idcia=self.idcia;
@@ -136,7 +156,7 @@
         tt.idsub=self.idsub;
         [self.navigationController pushViewController:tt animated:NO];
     }else{
-        newguest *tt = [newguest alloc];
+        newguest *tt =  [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"newguest"];
         tt.managedObjectContext=self.managedObjectContext;
         tt.idweb=self.idweb;
         tt.idcia=self.idcia;

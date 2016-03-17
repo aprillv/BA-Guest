@@ -17,16 +17,22 @@
 #import "MBProgressHUD.h"
 
 @interface select2 ()<MBProgressHUDDelegate, UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *phonenoField;
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UIButton *searchBtn;
+@property (strong, nonatomic) IBOutlet UIButton *clearBtn;
+@property (strong, nonatomic) IBOutlet UILabel *communityLbl;
+@property (strong, nonatomic) IBOutlet UIImageView *ciaLogo;
+@property (strong, nonatomic) IBOutlet UIButton *gobackBtn;
+@property (strong, nonatomic) IBOutlet UIScrollView *sv;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *svContentSize;
 
 @end
 
 @implementation select2{
-    UITextField *emailField;
-    UITextField *phonenoField;
     UILabel *errorlbl;
     MBProgressHUD *HUD;
     int donext;
-    UIScrollView *sv;
 //    wcfGuestEntryItem *rtt;
 }
 @synthesize idcia, idweb, cianm, commnunitynm, idarea, idsub;
@@ -45,150 +51,41 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self doInitPage];
-    [phonenoField setText:@""];
-    [emailField setText:@""];
+//    [self doInitPage];
+    
+    if ([idcia isEqualToString:@"100"]) {
+        self.ciaLogo.image = [UIImage imageNamed:@"Lovetthomes-LOGO"];
+    }else{
+        self.ciaLogo.image = [UIImage imageNamed:@"InTownHomes-LOGO"];
+    }
+    self.communityLbl.text = commnunitynm;
+    
+    self.searchBtn.layer.cornerRadius = 5.0;
+    self.clearBtn.layer.cornerRadius = 5.0;
+    self.gobackBtn.layer.cornerRadius = 5.0;
+    self.searchBtn.backgroundColor = [UIColor orangeColor];
+    
+    self.clearBtn.backgroundColor = [UIColor orangeColor];
+    self.gobackBtn.backgroundColor = [[UIColor alloc] initWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
 }
 
-
--(void)doInitPage{
-    
-    
-    int x;
-    int y;
-    int xw;
-    int xh;
-    int xx;
-    if (self.view.bounds.size.width==748.0f) {
-        xx =135;
-        xw= self.view.bounds.size.height;
-        xh=self.view.bounds.size.width+1;
-    }else{
-        xx =112;
-        xw= self.view.bounds.size.width;
-        xh=self.view.bounds.size.height+1;
+- (BOOL)textFieldShouldReturn: (UITextField *)textField;{
+    if (textField == self.phonenoField) {
+        [self dolookfor];
+        return YES;
     }
-    
-    baControl *bc =[[baControl alloc]init];
-    if ([idcia isEqualToString:@"100"]  || [idcia isEqualToString:@"306"]) {
-        self.view=[bc GetCommenFrame100r:xw andxh:xh];
-    }else{
-        self.view=[bc GetCommenFrame101r:xw andxh:xh];
-    }
-    
-    UIButton *logoutbtn =[bc getButton:[UIColor grayColor] andrect:CGRectMake(0, 0, 130, 40)];
-    logoutbtn.frame=CGRectMake(xw-150, 25, 130, 40);
-    [logoutbtn setTitle:@"Go Back" forState:UIControlStateNormal];
-    [logoutbtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:logoutbtn];
-    
-    
-    UIScrollView *v3=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 120, xw, xh-185)];
-    [self.view addSubview:v3];
-    sv=v3;
-    
-    y=0;
-    x=15;
-    sv.contentSize=CGSizeMake(xw,xh-183);
-    
-    UILabel *lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 400, 45)];
-    lbl.font=[UIFont systemFontOfSize:18.0];
-    lbl.text=[NSString stringWithFormat:@"Thank you for visiting %@.", commnunitynm];
-    [sv addSubview:lbl];
-    y=y+100;
-    
-    xx=240;
-    
-    
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 400, 30)];
-    lbl.text=@"Guest Cell Phone Number";
-    [sv addSubview:lbl];
-    y=y+40;
-   
-    
-    phonenoField=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 450, 40)];
-    [phonenoField setBorderStyle:UITextBorderStyleRoundedRect];
-//       [phonenoField setBorderStyle:UITextBorderStyleNone];
-//    phonenoField.layer.cornerRadius=0.0f;
-//    phonenoField.layer.masksToBounds=YES;
-//    phonenoField.layer.borderColor=[[UIColor grayColor]CGColor];
-//    phonenoField.layer.borderWidth= 3.0f;
-    phonenoField.enabled=NO;
-    [sv addSubview: phonenoField];
-    
-    phonenoField=[[UITextField alloc]initWithFrame:CGRectMake(xx+3, y+9, 444, 31)];
-    [phonenoField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    [phonenoField setBorderStyle:UITextBorderStyleNone];
-//    phonenoField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    phonenoField.keyboardType =UIKeyboardTypeNumberPad;
-    phonenoField.returnKeyType=UIReturnKeySearch;
-    phonenoField.delegate=self;
-    [sv addSubview: phonenoField];
-    
-   
-    y=y+50;
-    
-    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 400, 30)];
-    lbl.text=@"Guest Email Address";
-    [sv addSubview:lbl];
-    y=y+40;
-    
-    emailField=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 450, 40)];
-    [emailField setBorderStyle:UITextBorderStyleRoundedRect];
-//    [emailField setBorderStyle:UITextBorderStyleNone];
-//    emailField.layer.cornerRadius=0.0f;
-//    emailField.layer.masksToBounds=YES;
-//    emailField.layer.borderColor=[[UIColor grayColor]CGColor];
-//    emailField.layer.borderWidth= 3.0f;
-    emailField.enabled=NO;
-    [sv addSubview: emailField];
-    
-    emailField=[[UITextField alloc]initWithFrame:CGRectMake(xx+3, y+9, 444, 40)];
-   [emailField setBorderStyle:UITextBorderStyleNone];
-    [emailField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-    emailField.delegate=self;
-    //    [emailField setSecureTextEntry:YES];
-     emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    emailField.keyboardType=UIKeyboardTypeEmailAddress;
-    emailField.returnKeyType=UIReturnKeySearch;
-    [emailField addTarget:self action:@selector(dddddddd:) forControlEvents:UIControlEventEditingDidBegin];
-    [sv addSubview: emailField];
-    
-    y= y+100;
-    
-   
-    
-    
-    
-    UIButton *btn1 = [bc getButton1:[UIColor orangeColor] andrect:CGRectMake(0, 0, 150, 44) andradius:5.0f];
-    [btn1 setFrame:CGRectMake(xx, y, 150, 44)];
-    [btn1 setTitle:@"Search" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(dolookfor) forControlEvents:UIControlEventTouchDown];
-    [sv addSubview:btn1];
-    
-    btn1 = [bc getButton1:[UIColor grayColor] andrect:CGRectMake(0, 0, 150, 44) andradius:5.0f];
-    [btn1 setFrame:CGRectMake(xx+300, y, 150, 44)];
-    [btn1 setTitle:@"Clear" forState:UIControlStateNormal];
-    [btn1 addTarget:self action:@selector(goclear) forControlEvents:UIControlEventTouchDown];
-    [sv addSubview:btn1];
-    y=y+50+x;
-    
-    
-    errorlbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 400, 30)];
-    errorlbl.text=@"* Cell phone or email not found.";
-    errorlbl.textColor=[UIColor redColor];
-    errorlbl.hidden=YES;
-    [sv addSubview:errorlbl];
+    [self doSearch:nil];
+    return YES;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;{
-    
-    [self dolookfor];
-    return NO;
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.sv setContentOffset:CGPointMake(0,0) animated:YES];
+    self.svContentSize.constant = 0;
+    [self.sv updateConstraintsIfNeeded];
 }
 -(void)goclear{
-    [phonenoField setText:@""];
-    [emailField setText:@""];
+    [self.phonenoField setText:@""];
+    [self.emailField setText:@""];
     errorlbl.hidden=YES;
 }
 
@@ -199,9 +96,11 @@
     
 }
 
--(IBAction)dddddddd:(id)sender{
-    
-    [sv setContentOffset:CGPointMake(0,100) animated:YES];
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    self.svContentSize.constant = 180;
+     [self.sv updateConstraintsIfNeeded];
+ [self.sv setContentOffset:CGPointMake(0,80) animated:YES];
+    return YES;
 }
 
 -(void)CancletPin{
@@ -213,12 +112,12 @@
     }else{
         errorlbl.hidden=YES;
         
-        NSString *sphone =[Mysql TrimText:phonenoField.text];
-        NSString *semail =[Mysql TrimText:emailField.text];
+        NSString *sphone =[Mysql TrimText:self.phonenoField.text];
+        NSString *semail =[Mysql TrimText:self.emailField.text];
         if ([sphone isEqualToString:@""]&&[semail isEqualToString:@""]) {
             UIAlertView *tt=[self getErrorAlert:@"Please enter cell phone number or email to search."];
             [tt show];
-            [phonenoField becomeFirstResponder];
+            [self.phonenoField becomeFirstResponder];
             return;
             //    }else if ([sphone isEqualToString:@""]){
             //        if (semail.length<4) {
@@ -235,10 +134,10 @@
             //        return;
             //    }
         }else if(!([semail isEqualToString:@""])){
-            if ([Mysql IsEmail:[Mysql TrimText:emailField.text]]==NO) {
+            if ([Mysql IsEmail:[Mysql TrimText:self.emailField.text]]==NO) {
                 UIAlertView *alert = [self getErrorAlert: @"Please enter a valid email address."];
                 [alert show];
-                [emailField becomeFirstResponder];
+                [self.emailField becomeFirstResponder];
                 return;
             }}
         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
@@ -271,6 +170,9 @@
         }
     }
 }
+- (IBAction)doBack:(id)sender {
+    [self goBack];
+}
 
 -(void)goBack{
     
@@ -279,19 +181,27 @@
     
    
 }
+- (IBAction)doSearch:(id)sender {
+    [self dolookfor];
+}
+- (IBAction)doClear:(id)sender {
+    [self goclear];
+}
 -(void)dolookfor{
     
     donext=3;
     
-    if (phonenoField.text.length!=0) {
-        phonenoField.text=[self validateNumber:phonenoField.text];
-        if (phonenoField.text.length!=10) {
-            UIAlertView *alert=[self getErrorAlert:@"Please enter 10 numbers."];
+    if (self.phonenoField.text.length != 0) {
+        self.phonenoField.text = [self validateNumber:self.phonenoField.text];
+        if (self.phonenoField.text.length != 10) {
+            UIAlertView *alert = [self getErrorAlert:@"Please enter 10 numbers."];
             [alert show];
-            [phonenoField becomeFirstResponder];
+            [self.phonenoField becomeFirstResponder];
             return;
         }
     }
+    [self.emailField resignFirstResponder];
+    [self.phonenoField resignFirstResponder];
    
     [self dosync1];
     
@@ -348,7 +258,7 @@
     if (rtt.idnumber==0) {
         errorlbl.hidden=NO;
     }else{
-        newguest *tt = [newguest alloc];
+        newguest *tt =  [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"newguest"];
         tt.managedObjectContext=self.managedObjectContext;
         tt.idweb=self.idweb;
         tt.idcia=self.idcia;
@@ -363,10 +273,6 @@
     }
 }
 
--(IBAction)textFieldDoneEditing:(UITextField *)sender{
-    [sv setContentOffset:CGPointMake(0, 0)];
-    [sender resignFirstResponder];
-}
 
 
 - (void)didReceiveMemoryWarning

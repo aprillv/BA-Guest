@@ -38,7 +38,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UIButton *LoginBtn;
 @property (strong, nonatomic) IBOutlet UISwitch *rememberSwitch;
+@property (strong, nonatomic) IBOutlet UILabel *lblCopyRight;
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UILabel *remelbl;
 @end
 
 
@@ -61,32 +63,54 @@
 }
 
 @synthesize usernameField, passwordField, LoginBtn;
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     transiting=NO;
+    self.navigationController.navigationBarHidden = NO;
+}
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    self.navigationController.navigationBarHidden=YES;
+//    self.navigationController.navigationBarHidden=YES;
     self.title=@"Guest Registration";
     
-   
-//    backView.backgroundColor = UIColor.whiteColor()
-//    backView.layer.borderColor = CConstants.BorderColor.CGColor
-//    backView.layer.borderWidth = 1.0
-//    backView.layer.cornerRadius = 8
     
-//    self.backView.layer.borderWidth = 1.0f;
-//    self.backView.layer.cornerRadius = 8;
-//    self.backView.layer.borderColor = [UIColor colorWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1].CGColor;
+    UIColor *appColor1 = [[UIColor alloc] initWithRed:19/255.0 green:72/255.0 blue:116/255.0 alpha:1];
+//    UIColor *appColor1 = [[UIColor alloc] initWithRed:0 green:164/255.0 blue:236/255.0 alpha:1];
+    UIColor *appColor = [[UIColor alloc] initWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
+//    164236
+    self.navigationController.navigationBar.barTintColor = appColor;
+//    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     
-    self.backView.layer.borderColor = [[UIColor alloc]initWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1].CGColor;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Futura" size:25.0], NSForegroundColorAttributeName: [UIColor blackColor]};
+    self.navigationController.toolbar.barTintColor = appColor;
+    self.navigationController.toolbar.barStyle = UIBarStyleDefault;
+    self.navigationController.toolbarHidden = true;
+    
+    self.LoginBtn.backgroundColor = appColor1;
+    self.rememberSwitch.onTintColor = appColor1;
+    [self.LoginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.LoginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
+    self.backView.layer.borderColor = [[UIColor alloc] initWithRed: 220/255.0 green: 220/255.0 blue: 220/255.0 alpha: 1].CGColor;
     self.backView.layer.borderWidth = 1;
     
     self.rememberSwitch.transform = CGAffineTransformMakeScale(0.9, 0.9);
     
-    self.backView.layer.shadowColor = [[UIColor alloc]initWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1].CGColor;
+//    self.backView.layer.shadowColor = [[UIColor alloc]initWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1].CGColor;
+//    self.backView.layer.shadowOpacity = 1;
+//    self.backView.layer.shadowRadius = 8.0;
+//    self.backView.layer.shadowOffset = CGSizeMake(1, 0);
+    
+    self.backView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.backView.layer.shadowOpacity = 1;
     self.backView.layer.shadowRadius = 8.0;
-    self.backView.layer.shadowOffset = CGSizeMake(1, 0);
+    self.backView.layer.shadowOffset = CGSizeMake(-0.5, 0);
+    
+//    self.lblCopyRight.textColor = appColor1;
+    self.usernameField.textColor = [UIColor darkGrayColor];
+    self.passwordField.textColor = [UIColor darkGrayColor];
+    self.remelbl.textColor = [UIColor darkGrayColor];
     
     self.LoginBtn.layer.cornerRadius = 5;
     
@@ -146,13 +170,6 @@
 //    isenter=NO;
 //}
 
--(void)viewWillAppear:(BOOL)animated{
-//    self.navigationController.navigationBarHidden=NO;
-//    if (!ischecked) {
-//        passwordField.text=@"";
-//    }
-    transiting=NO;
-}
 
 
 // custom keyboard
@@ -572,10 +589,10 @@
 -(void)CancletPin{
     [super CancletPin];
     [HUD hide];
-  [userInfo initCiaInfo:1 andNm:@""];
-    findcommunity *fy =[findcommunity alloc];
-    fy.managedObjectContext=self.managedObjectContext;
-    [self.navigationController pushViewController:fy animated:NO];
+    [userInfo initCiaInfo:1 andNm:@""];
+    findcommunity *fy = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"findcommunity"];
+    fy.managedObjectContext = self.managedObjectContext;
+    [self.navigationController pushViewController: fy animated:NO];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
