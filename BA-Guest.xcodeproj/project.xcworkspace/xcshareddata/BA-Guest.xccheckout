@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E2D07308-EEE9-4316-A26A-1CC7D18B5C17</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BA-Guest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1D77A1EC669D4D53E47A733B49AA5107AC3A3509</key>
+		<string>https://github.com/aprillv/BA-Guest.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BA-Guest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1D77A1EC669D4D53E47A733B49AA5107AC3A3509</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aprillv/BA-Guest.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1D77A1EC669D4D53E47A733B49AA5107AC3A3509</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1D77A1EC669D4D53E47A733B49AA5107AC3A3509</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BA-Guest</string>
+		</dict>
+	</array>
+</dict>
+</plist>

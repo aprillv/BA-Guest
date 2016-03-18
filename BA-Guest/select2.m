@@ -79,9 +79,10 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    [self.sv setContentOffset:CGPointMake(0,0) animated:YES];
+    
     self.svContentSize.constant = 0;
     [self.sv updateConstraintsIfNeeded];
+     [self.sv setContentOffset:CGPointMake(0,0) animated:NO];
 }
 -(void)goclear{
     [self.phonenoField setText:@""];

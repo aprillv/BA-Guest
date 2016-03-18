@@ -308,6 +308,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="T1L-PN-sxq"/>
                                                     <constraint firstAttribute="width" constant="150" id="wIa-3P-Jpe"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <state key="normal" title="Search">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -318,6 +319,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79Z-YP-H11">
                                                 <rect key="frame" x="602" y="313" width="150" height="44"/>
                                                 <color key="backgroundColor" red="0.074509803920000006" green="0.28235294119999998" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <state key="normal" title="Clear">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -619,7 +621,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="MRa-Ep-2MX" firstAttribute="leading" secondItem="ubp-uG-dCT" secondAttribute="trailing" constant="9" id="0Dt-H9-csn"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Jc5-Hu-pUu" secondAttribute="bottom" constant="-8" id="1ZW-GW-zf6"/>
@@ -991,16 +993,16 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send me updated information about %@ and this community." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyF-HI-jhU">
-                                                        <rect key="frame" x="487" y="239" width="369" height="41"/>
+                                                        <rect key="frame" x="484" y="239" width="372" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnG-tv-zi9">
-                                                        <rect key="frame" x="442" y="244" width="42" height="32"/>
+                                                        <rect key="frame" x="442" y="242" width="36" height="36"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="32" id="BBt-1a-aeO"/>
-                                                            <constraint firstAttribute="width" constant="42" id="CPr-e0-uti"/>
+                                                            <constraint firstAttribute="height" constant="36" id="BBt-1a-aeO"/>
+                                                            <constraint firstAttribute="width" constant="36" id="CPr-e0-uti"/>
                                                         </constraints>
                                                         <state key="normal" image="chk"/>
                                                         <connections>
@@ -1168,7 +1170,7 @@
                                                     <constraint firstItem="L4S-Cc-fCd" firstAttribute="leading" secondItem="eCd-9Y-PPR" secondAttribute="leading" constant="8" id="CDU-az-JxM"/>
                                                     <constraint firstItem="R9c-om-bEA" firstAttribute="leading" secondItem="za7-lx-Mgg" secondAttribute="leading" id="Cke-zC-rbg"/>
                                                     <constraint firstItem="za7-lx-Mgg" firstAttribute="height" secondItem="cI9-b2-7vC" secondAttribute="height" id="DRI-o7-2Up"/>
-                                                    <constraint firstItem="hyF-HI-jhU" firstAttribute="leading" secondItem="4qh-hL-qNJ" secondAttribute="leading" constant="45" id="DTS-Ja-GK8"/>
+                                                    <constraint firstItem="hyF-HI-jhU" firstAttribute="leading" secondItem="4qh-hL-qNJ" secondAttribute="leading" constant="42" id="DTS-Ja-GK8"/>
                                                     <constraint firstItem="Vbm-UQ-MFP" firstAttribute="height" secondItem="OmR-Br-M7d" secondAttribute="height" id="DZi-c2-QcR"/>
                                                     <constraint firstItem="4vX-66-TCD" firstAttribute="leading" secondItem="eCd-9Y-PPR" secondAttribute="leading" constant="11" id="EEB-p4-hOT"/>
                                                     <constraint firstItem="Vbm-UQ-MFP" firstAttribute="leading" secondItem="N6t-64-qcv" secondAttribute="leading" id="F0r-mZ-fRg"/>
@@ -1394,7 +1396,7 @@
         <image name="Lovetthomes-LOGO" width="241" height="100"/>
         <image name="back" width="30" height="30"/>
         <image name="balogo" width="100" height="65"/>
-        <image name="chk" width="33" height="32"/>
+        <image name="chk" width="46" height="46"/>
         <image name="rdo" width="44" height="44"/>
         <image name="rdoed" width="44" height="44"/>
     </resources>
