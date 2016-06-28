@@ -175,7 +175,8 @@
     [self gobiga];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;{
-    [self dologin];
+    [textField resignFirstResponder];
+    [self dologin2];
     return NO;
 }
 
