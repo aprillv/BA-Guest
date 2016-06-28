@@ -33,13 +33,14 @@
 	// Do any additional setup after loading the view.
     self.title = commnunitynm;
     
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"FromNewGuest"];
 //    [self doInitPage];
     if ([idcia isEqualToString:@"100"]) {
         self.cialogo.image = [UIImage imageNamed:@"Lovetthomes-LOGO"];
     }else{
         self.cialogo.image = [UIImage imageNamed:@"InTownHomes-LOGO"];
     }
-    self.ThanksLbl.text = commnunitynm;
+//    self.ThanksLbl.text = [NSString stringWithFormat:@"Thank you for visiting %@.", commnunitynm];
     self.NewGuestBtn.layer.cornerRadius = 25.0f;
     self.ReturnGuestBtn.layer.cornerRadius = 25.f;
     self.logoutBtn.backgroundColor = [[UIColor alloc] initWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1];
@@ -51,6 +52,41 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"FromNewGuest"] == YES) {
+        
+        NSString * text = [NSString stringWithFormat:@"Thank you for registering with %@.\nWe look forward to helping you find your new home.", commnunitynm];
+        NSDictionary *attribs = @{
+                                  NSFontAttributeName:[UIFont systemFontOfSize:18.0]
+                                  };
+        NSMutableAttributedString *attributedText =
+        [[NSMutableAttributedString alloc] initWithString:text
+                                               attributes:attribs];
+        
+        
+        NSRange redTextRange =[text rangeOfString:commnunitynm];// * Notice that usage of rangeOfString in this case may cause some bugs - I use it here only for demonstration
+        [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Futura-Medium" size:20]} range:redTextRange];
+        self.ThanksLbl.attributedText = attributedText;
+//        
+//        self.ThanksLbl.text = [NSString stringWithFormat:@"Thank you for registering with %@.\nWe look forward to helping you find your new home.", commnunitynm];
+    }else{
+        NSString * text = [NSString stringWithFormat:@"Thank you for visiting %@.", commnunitynm];
+        NSDictionary *attribs = @{
+                                  NSFontAttributeName:[UIFont systemFontOfSize:18.0]
+                                  };
+        NSMutableAttributedString *attributedText =
+        [[NSMutableAttributedString alloc] initWithString:text
+                                               attributes:attribs];
+        
+        
+        NSRange redTextRange =[text rangeOfString:commnunitynm];// * Notice that usage of rangeOfString in this case may cause some bugs - I use it here only for demonstration
+        [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Futura-Medium" size:20]} range:redTextRange];
+        
+        self.ThanksLbl.attributedText = attributedText;
+    }
+}
 -(void)doInitPage{
     
     
@@ -157,6 +193,7 @@
         [self.navigationController pushViewController:tt animated:NO];
     }else{
         newguest *tt =  [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"newguest"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"FromNewGuest"];
         tt.managedObjectContext=self.managedObjectContext;
         tt.idweb=self.idweb;
         tt.idcia=self.idcia;

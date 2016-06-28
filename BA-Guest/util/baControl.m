@@ -138,7 +138,7 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     
     UILabel *lbl=[[UILabel alloc]initWithFrame:CGRectMake(10, 2, xw-20, 40)];
     lbl.text=@"Copyright (c) 2016 Lovetthomes. All rights reserved.";
-    lbl.font=[UIFont systemFontOfSize:14.0f];
+    lbl.font=[UIFont fontWithName:@"Futura" size:14.0];
     lbl.textAlignment = NSTextAlignmentCenter;
     lbl.backgroundColor=[UIColor clearColor];
     [v2 addSubview:lbl];
@@ -157,10 +157,10 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     [v1 addSubview:iv];
     UILabel *tt =[[UILabel alloc]initWithFrame:CGRectMake(340, 20, 500, 50)];
     tt.text=stitle;
-    tt.font=[UIFont boldSystemFontOfSize:25.0f];
+    tt.font=[UIFont fontWithName:@"Futura-Medium" size:25.0];
     [v1 addSubview:tt];
     UIView *v2=[[UIView alloc]initWithFrame:CGRectMake(0, 95, xw, 20)];
-    v2.backgroundColor=[UIColor lightGrayColor];
+    v2.backgroundColor=[UIColor colorWithRed:220/255. green:220/255. blue:220/255. alpha:1];
     [aaaa addSubview:v2];
     
     

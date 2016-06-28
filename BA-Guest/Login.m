@@ -395,13 +395,6 @@
             transiting=NO;
         }else{
             wcfService* service = [wcfService service];
-            
-            //            if([self.dd1.titleLabel.text isEqualToString:@"Builder"]){
-            //
-            //
-            //
-            //            }
-            //            NSLog(@"%@", myMD5Pas);
             [service xCheckLogin:self action:@selector(xCheckLoginHandler:) xemail: user_name xpassword: myMD5Pas EquipmentType:@"3"];
         }
 	}

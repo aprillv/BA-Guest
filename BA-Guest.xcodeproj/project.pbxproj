@@ -11,6 +11,7 @@
 		11021E6B1C91121D00FD0FAD /* SelectHowToHearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11021E6A1C91121D00FD0FAD /* SelectHowToHearViewController.m */; };
 		11163B391C89581C001AA556 /* communityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11163B381C89581C001AA556 /* communityCell.swift */; };
 		11163B3D1C8960E2001AA556 /* communityHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11163B3C1C8960E2001AA556 /* communityHeadView.swift */; };
+		111B125A1D226D330085037E /* newguest.m in Sources */ = {isa = PBXBuildFile; fileRef = 111B12581D226D330085037E /* newguest.m */; };
 		11C497471C6C54FA00A6F039 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C497461C6C54FA00A6F039 /* Images.xcassets */; };
 		11C497491C6C55E900A6F039 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C497481C6C55E900A6F039 /* Launch Screen.storyboard */; };
 		11E9B8CA1C8971CE0070D7E7 /* CConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E9B8C91C8971CE0070D7E7 /* CConstants.swift */; };
@@ -47,7 +48,6 @@
 		B11FA5B518F3CE9800AF6C5B /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FA59718F3CE9800AF6C5B /* CXMLNode_PrivateExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B11FA5B618F3CE9800AF6C5B /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FA59918F3CE9800AF6C5B /* CXMLNode_XPathExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B11FA5B818F3CF2500AF6C5B /* fViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FA5B718F3CF2500AF6C5B /* fViewController.m */; };
-		B11FA5BA18F3CF4F00AF6C5B /* newguest.m in Sources */ = {isa = PBXBuildFile; fileRef = B11FA5B918F3CF4F00AF6C5B /* newguest.m */; };
 		B121244E18BB0B4300DE3195 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BC668B1881353B0042B638 /* Default-Landscape~ipad.png */; };
 		B12340631888C23E00674A24 /* MTPopupWindowCloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B12340611888C23E00674A24 /* MTPopupWindowCloseButton.m */; };
 		B12507FA18A4B9440051178F /* select1.m in Sources */ = {isa = PBXBuildFile; fileRef = B12507F918A4B9440051178F /* select1.m */; };
@@ -89,7 +89,6 @@
 		B12D1F4B1880D562004C8CF0 /* PAPasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D1F171880D562004C8CF0 /* PAPasscodeViewController.m */; };
 		B12D1F4C1880D562004C8CF0 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D1F1A1880D562004C8CF0 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B12D604118A220D0002A2622 /* cl_guest.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D604018A220D0002A2622 /* cl_guest.m */; };
-		B12D604418A22EF0002A2622 /* guestsubmit.m in Sources */ = {isa = PBXBuildFile; fileRef = B12D604318A22EEF002A2622 /* guestsubmit.m */; };
 		B1BC664C18810CA40042B638 /* CustomKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BC664B18810CA40042B638 /* CustomKeyboard.m */; };
 		B1BC664F18810CEC0042B638 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BC664D18810CEC0042B638 /* MBProgressHUD.m */; };
 		B1BC665118810EBE0042B638 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1BC665018810EBE0042B638 /* QuartzCore.framework */; };
@@ -107,6 +106,8 @@
 		11163B351C89188D001AA556 /* BA-Guest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BA-Guest-Bridging-Header.h"; sourceTree = "<group>"; };
 		11163B381C89581C001AA556 /* communityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = communityCell.swift; sourceTree = "<group>"; };
 		11163B3C1C8960E2001AA556 /* communityHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = communityHeadView.swift; sourceTree = "<group>"; };
+		111B12581D226D330085037E /* newguest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newguest.m; sourceTree = "<group>"; };
+		111B12591D226D330085037E /* newguest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newguest.h; sourceTree = "<group>"; };
 		111FF7DB1C924CF000960FD3 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIQKeyboardManager.a; path = "Pods/../build/Debug-iphoneos/IQKeyboardManager/libIQKeyboardManager.a"; sourceTree = "<group>"; };
 		1169E3D41C9172B700EE9601 /* libIQKeyboardManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIQKeyboardManager.a; path = "Pods/../build/Debug-iphoneos/IQKeyboardManager/libIQKeyboardManager.a"; sourceTree = "<group>"; };
 		11C497461C6C54FA00A6F039 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -184,7 +185,6 @@
 		B11FA59918F3CE9800AF6C5B /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
 		B11FA59A18F3CE9800AF6C5B /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		B11FA5B718F3CF2500AF6C5B /* fViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fViewController.m; sourceTree = "<group>"; };
-		B11FA5B918F3CF4F00AF6C5B /* newguest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newguest.m; sourceTree = "<group>"; };
 		B12340611888C23E00674A24 /* MTPopupWindowCloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTPopupWindowCloseButton.m; sourceTree = "<group>"; };
 		B12340621888C23E00674A24 /* MTPopupWindowCloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTPopupWindowCloseButton.h; sourceTree = "<group>"; };
 		B12507F818A4B9440051178F /* select1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = select1.h; sourceTree = "<group>"; };
@@ -251,12 +251,9 @@
 		B12D1F171880D562004C8CF0 /* PAPasscodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPasscodeViewController.m; sourceTree = "<group>"; };
 		B12D1F191880D562004C8CF0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		B12D1F1A1880D562004C8CF0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		B12D603B18A1CB0B002A2622 /* newguest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newguest.h; sourceTree = "<group>"; };
 		B12D603E18A21D27002A2622 /* BA_Guest2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BA_Guest2.xcdatamodel; sourceTree = "<group>"; };
 		B12D603F18A220CF002A2622 /* cl_guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cl_guest.h; sourceTree = "<group>"; };
 		B12D604018A220D0002A2622 /* cl_guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cl_guest.m; sourceTree = "<group>"; };
-		B12D604218A22EEE002A2622 /* guestsubmit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guestsubmit.h; sourceTree = "<group>"; };
-		B12D604318A22EEF002A2622 /* guestsubmit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guestsubmit.m; sourceTree = "<group>"; };
 		B1BC664A18810CA40042B638 /* CustomKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomKeyboard.h; sourceTree = "<group>"; };
 		B1BC664B18810CA40042B638 /* CustomKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomKeyboard.m; sourceTree = "<group>"; };
 		B1BC664D18810CEC0042B638 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -496,16 +493,14 @@
 				B12D1EA61880D483004C8CF0 /* util */,
 				B12D1E8F1880D447004C8CF0 /* Login.m */,
 				B12D1E901880D447004C8CF0 /* Login.h */,
+				111B12581D226D330085037E /* newguest.m */,
+				111B12591D226D330085037E /* newguest.h */,
 				B11E0A7118A0D45900C8400D /* findcommunity.m */,
 				B11E0A7218A0D45900C8400D /* findcommunity.h */,
 				B12507F818A4B9440051178F /* select1.h */,
 				B12507F918A4B9440051178F /* select1.m */,
-				B12D603B18A1CB0B002A2622 /* newguest.h */,
-				B11FA5B918F3CF4F00AF6C5B /* newguest.m */,
 				B12507FB18A4C8BA0051178F /* select2.h */,
 				B12507FC18A4C8BA0051178F /* select2.m */,
-				B12D604218A22EEE002A2622 /* guestsubmit.h */,
-				B12D604318A22EEF002A2622 /* guestsubmit.m */,
 				B12D1E911880D447004C8CF0 /* forgetps1.m */,
 				B12D1E931880D447004C8CF0 /* forgetps1.h */,
 				11021E691C91121D00FD0FAD /* SelectHowToHearViewController.h */,
@@ -776,13 +771,13 @@
 				B11E0ACB18A0ECF900C8400D /* communitycell.m in Sources */,
 				B12D604118A220D0002A2622 /* cl_guest.m in Sources */,
 				11E9B8CA1C8971CE0070D7E7 /* CConstants.swift in Sources */,
-				B12D604418A22EF0002A2622 /* guestsubmit.m in Sources */,
 				B12507FA18A4B9440051178F /* select1.m in Sources */,
 				B12507FD18A4C8BA0051178F /* select2.m in Sources */,
 				B11FA59B18F3CE9800AF6C5B /* wcfServiceExample.m in Sources */,
 				B11FA59C18F3CE9800AF6C5B /* Soap+Prefix.m in Sources */,
 				B11FA59D18F3CE9800AF6C5B /* wcfArrayOfCommunityItem.m in Sources */,
 				B11FA59E18F3CE9800AF6C5B /* wcfCommunityItem.m in Sources */,
+				111B125A1D226D330085037E /* newguest.m in Sources */,
 				B11FA59F18F3CE9800AF6C5B /* wcfGuestEntryItem.m in Sources */,
 				B11FA5A018F3CE9800AF6C5B /* wcfGuestEntryItem1.m in Sources */,
 				B11FA5A118F3CE9800AF6C5B /* wcfKeyValueItem.m in Sources */,
@@ -812,7 +807,6 @@
 				11163B391C89581C001AA556 /* communityCell.swift in Sources */,
 				B11FA5B818F3CF2500AF6C5B /* fViewController.m in Sources */,
 				11163B3D1C8960E2001AA556 /* communityHeadView.swift in Sources */,
-				B11FA5BA18F3CF4F00AF6C5B /* newguest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

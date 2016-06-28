@@ -16,7 +16,6 @@
 #import "Reachability.h"
 #import "wcfService.h"
 #import "userInfo.h"
-#import "guestsubmit.h"
 //#import "BA_Guest-Swift.h"
 #import "SelectHowToHearViewController.h"
 
@@ -192,251 +191,7 @@
 //    [self.sv setContentOffset:CGPointMake(0,0) animated:YES];
 }
 
--(void)doinit{
     
-//    
-//    checkButton=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [checkButton setFrame:CGRectMake(xx+400, y+10, 44, 44)];
-//    [checkButton addTarget:self action:@selector(CheckboxClicked:) forControlEvents:UIControlEventTouchDown];
-//    [checkButton setImageEdgeInsets:UIEdgeInsetsMake(2.0, -10.0, 5.0, 5.0)];
-//    [checkButton setImage: [UIImage imageNamed:@"chked.png"] forState:UIControlStateNormal];
-//    [checkButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0, 0.0, 5.0, 5.0)];
-//    [checkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    //     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-//    ischecked=YES;
-//    [checkButton setTitle:@"" forState:UIControlStateNormal];
-//    [sv addSubview:checkButton];
-//    
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+440, y, 330, 50)];
-//    lbl.text=[NSString stringWithFormat:@"Send me updated information about %@ and this community.", cianm];
-//    lbl.numberOfLines=2;
-//    [sv addSubview:lbl];
-//    
-//    y=y+30;
-//    
-//    
-//    UITextField *text1=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 380, 30)];
-//    [text1 setBorderStyle:UITextBorderStyleRoundedRect];
-//    text1.enabled=NO;
-//    text1.text=@"";
-//    [sv addSubview: text1];
-//    
-//    hearField=[UIButton buttonWithType: UIButtonTypeCustom];
-//    [hearField setFrame:CGRectMake(xx+10, y+4, 330, 21)];
-//    [hearField setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [hearField setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-//    [hearField setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 23)];
-//    [hearField.titleLabel setFont:[UIFont systemFontOfSize:17]];
-//    [hearField addTarget:self action:@selector(popupscreen5) forControlEvents:UIControlEventTouchDown];
-//    
-//    [sv addSubview:hearField];
-//    
-//    y=y+40+20;
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 400, 25)];
-//    //    lbl.text=@"WILL YOU HAVE A REALTOR?";
-//    lbl.text=@"DO YOU PLAN ON USING A REALTOR?";
-//    [sv addSubview:lbl];
-//    y=y+30;
-//    checkButton1=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [checkButton1 setFrame:CGRectMake(xx, y, 40, 40)];
-//    [checkButton1 addTarget:self action:@selector(CheckboxClicked3:) forControlEvents:UIControlEventTouchDown];
-//    //    [checkButton1 setImageEdgeInsets:UIEdgeInsetsMake(2.0, -0.0, 5.0, 5.0)];
-//    [checkButton1 setImage: [UIImage imageNamed:@"rdo.png"] forState:UIControlStateNormal];
-//    [checkButton1 setImage: [UIImage imageNamed:@"mask.png"] forState:UIControlStateHighlighted];
-//    //    [checkButton1 setTitleEdgeInsets:UIEdgeInsetsMake(2.0, -40.0, 5.0, 5.0)];
-//    //    [checkButton1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    //     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-//    ischecked1=YES;
-//    //    [checkButton1 setTitle:@"No" forState:UIControlStateNormal];
-//    [sv addSubview:checkButton1];
-//    
-//    UIButton*tt=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [tt setFrame:CGRectMake(xx+40, y, 40, 40)];
-//    //    [tt addTarget:self action:@selector(CheckboxClicked3:) forControlEvents:UIControlEventTouchDown];
-//    //    [checkButton setImageEdgeInsets:UIEdgeInsetsMake(2.0, -10.0, 5.0, 5.0)];
-//    //    [checkButton setImage: [UIImage imageNamed:@"chked.png"] forState:UIControlStateNormal];
-//    //    [checkButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0, 0.0, 5.0, 5.0)];
-//    [tt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    //     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-//    [tt setTitle:@"No" forState:UIControlStateNormal];
-//    [sv addSubview:tt];
-//    
-//    
-//    checkButton2=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [checkButton2 setFrame:CGRectMake(xx+100, y, 40, 40)];
-//    [checkButton2 addTarget:self action:@selector(CheckboxClicked4:) forControlEvents:UIControlEventTouchDown];
-//    //    [checkButton2 setImageEdgeInsets:UIEdgeInsetsMake(2.0, -50.0, 5.0, 5.0)];
-//    [checkButton2 setImage: [UIImage imageNamed:@"rdoed.png"] forState:UIControlStateNormal];
-//    [checkButton2 setImage: [UIImage imageNamed:@"mask.png"] forState:UIControlStateHighlighted];
-//    
-//    //    [checkButton2 setTitleEdgeInsets:UIEdgeInsetsMake(2.0, -40.0, 5.0, 5.0)];
-//    //    [checkButton2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    //     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-//    
-//    //    [checkButton2 setTitle:@"Yes" forState:UIControlStateNormal];
-//    [sv addSubview:checkButton2];
-//    
-//    tt=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [tt setFrame:CGRectMake(xx+140, y, 50, 40)];
-//    //    [tt addTarget:self action:@selector(CheckboxClicked3:) forControlEvents:UIControlEventTouchDown];
-//    //    [checkButton setImageEdgeInsets:UIEdgeInsetsMake(2.0, -10.0, 5.0, 5.0)];
-//    //    [checkButton setImage: [UIImage imageNamed:@"chked.png"] forState:UIControlStateNormal];
-//    //    [checkButton setTitleEdgeInsets:UIEdgeInsetsMake(2.0, 0.0, 5.0, 5.0)];
-//    [tt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    
-//    //     [checkButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
-//    [tt setTitle:@"Yes" forState:UIControlStateNormal];
-//    [sv addSubview:tt];
-//    
-//    y=y+40+10;
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 400, 25)];
-//    lbl.text=@"IF YES, PLEASE PROVIDE";
-//    [sv addSubview:lbl];
-//    y=y+30+10;
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 10, 25)];
-//    lbl.text=@"*";
-//    lbl.textColor=[UIColor redColor];
-//    [sv addSubview:lbl];
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+10, y, 200, 25)];
-//    lbl.text=@"AGENT FIRST NAME";
-//    [sv addSubview:lbl];
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+400, y, 10, 25)];
-//    lbl.text=@"*";
-//    lbl.textColor=[UIColor redColor];
-//    [sv addSubview:lbl];
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+410, y, 200, 25)];
-//    lbl.text=@"AGENT LAST NAME";
-//    [sv addSubview:lbl];
-//    y=y+30;
-//    
-//    
-//    realtorfirstnameField=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 380, 31)];
-//    [realtorfirstnameField setBorderStyle:UITextBorderStyleRoundedRect];
-//    [realtorfirstnameField addTarget:self action:@selector(dddddddd:) forControlEvents:UIControlEventEditingDidBegin];
-//    
-//    [realtorlastnameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-//    
-//    realtorfirstnameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-//    [sv addSubview: realtorfirstnameField];
-//    
-//    realtorlastnameField=[[UITextField alloc]initWithFrame:CGRectMake(xx+400, y, 380, 31)];
-//    realtorlastnameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-//    [realtorlastnameField setBorderStyle:UITextBorderStyleRoundedRect];
-//    [realtorlastnameField addTarget:self action:@selector(dddddddd:) forControlEvents:UIControlEventEditingDidBegin];
-//    [emailField addTarget:self action:@selector(dddddddd0:) forControlEvents:UIControlEventEditingDidBegin];
-//    [realtorlastnameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-//    //    [realtorlastnameField setSecureTextEntry:YES];
-//    [sv addSubview: realtorlastnameField];
-//    y=y+40;
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 10, 25)];
-//    lbl.text=@"*";
-//    lbl.textColor=[UIColor redColor];
-//    [sv addSubview:lbl];
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+10, y, 300, 25)];
-//    //    lbl.text=@"REALTOR CELL PHONE NUMBER";
-//    lbl.text=@"REALTOR EMAIL";
-//    [sv addSubview:lbl];
-//    
-//    //    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+400, y, 10, 25)];
-//    //    lbl.text=@"*";
-//    //    lbl.textColor=[UIColor redColor];
-//    //    [sv addSubview:lbl];
-//    //
-//    //    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx+410, y, 200, 25)];
-//    //    lbl.text=@"REALTOR EMAIL";
-//    //    [sv addSubview:lbl];
-//    y=y+30;
-//    
-//    //    phonenoField1=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 380, 31)];
-//    //    [phonenoField1 setBorderStyle:UITextBorderStyleRoundedRect];
-//    //    [phonenoField1 addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-//    //    [phonenoField1 addTarget:self action:@selector(dddddddd1:) forControlEvents:UIControlEventEditingDidBegin];
-//    //    phonenoField1.autocapitalizationType = UITextAutocapitalizationTypeNone;
-//    //    phonenoField1.keyboardType =UIKeyboardTypeNumberPad;
-//    //    [sv addSubview: phonenoField1];
-//    
-//    emailField1=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 780, 31)];
-//    [emailField1 setBorderStyle:UITextBorderStyleRoundedRect];
-//    [emailField1 addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-//    [emailField1 addTarget:self action:@selector(dddddddd1:) forControlEvents:UIControlEventEditingDidBegin];
-//    //    [emailField setSecureTextEntry:YES];
-//    emailField1.autocapitalizationType = UITextAutocapitalizationTypeNone;
-//    emailField1.keyboardType=UIKeyboardTypeEmailAddress;
-//    [sv addSubview: emailField1];
-//    y=y+40;
-//    
-//    
-//    
-//    lbl=[[UILabel alloc]initWithFrame:CGRectMake(xx, y, 200, 25)];
-//    lbl.text=@"REALTOR COMPANY";
-//    [sv addSubview:lbl];
-//    y=y+30;
-//    
-//    brokernameField=[[UITextField alloc]initWithFrame:CGRectMake(xx, y, 780, 31)];
-//    [brokernameField setBorderStyle:UITextBorderStyleRoundedRect];
-//    [brokernameField addTarget:self action:@selector(textFieldDoneEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-//    [brokernameField addTarget:self action:@selector(dddddddd2:) forControlEvents:UIControlEventEditingDidBegin];
-//    brokernameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-//    [sv addSubview: brokernameField];
-//    y=y+60;
-//    
-//    //    Mysql *mq =[[Mysql alloc]init];
-//    //    iv =[[UIImageView alloc]initWithImage:[mq createImageWithColor:[UIColor orangeColor]]];
-//    //    iv.frame=CGRectMake(xx, y, 380, 44);
-//    //    iv.layer.masksToBounds=YES;
-//    //    iv.layer.cornerRadius=5.0f;
-//    //    [sv addSubview:iv];
-//    
-//    UIButton *btn1 = [bc getButton:[UIColor orangeColor] andrect:CGRectMake(0, 0, 380, 44)];
-//    [btn1 setFrame:CGRectMake(xx, y, 380, 44)];
-//    [btn1 setTitle:@"Submit" forState:UIControlStateNormal];
-//    [btn1 addTarget:self action:@selector(dologin) forControlEvents:UIControlEventTouchDown];
-//    [sv addSubview:btn1];
-//    
-//    //    UIButton *btn1=[UIButton buttonWithType:UIButtonTypeCustom];
-//    //    [btn1 setFrame:CGRectMake(xx, y, 380, 44)];
-//    //    [btn1 setTitle:@"Submit" forState:UIControlStateNormal];
-//    //    [btn1 addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchDown];
-//    ////    [btn1 addTarget:self action:@selector(login:) forControlEvents:UIControlStateHighlighted];
-//    //    [sv addSubview:btn1];
-//    
-//    
-//    
-//    btn1 = [bc getButton:[UIColor grayColor] andrect:CGRectMake(0, 0, 380, 44)];
-//    [btn1 setFrame:CGRectMake(xx+400, y, 380, 44)];
-//    [btn1 setTitle:@"Clear" forState:UIControlStateNormal];
-//    [btn1 addTarget:self action:@selector(doclear:) forControlEvents:UIControlEventTouchDown];
-//    [sv addSubview:btn1];
-//    
-//    self.sv.contentSize=CGSizeMake(xw, xh+100);
-//    
-//    
-    
-    
-}
-
-
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-//    NSString *candidate = [[textField text] stringByReplacingCharactersInRange:range withString:string];
-//    if (!candidate || [candidate length] < 1 || [candidate isEqualToString:@""])
-//    {
-//        return YES;
-//    }
-//    NSDecimalNumber *number = [NSDecimalNumber decimalNumberWithString:candidate];
-//    if (!number || [number isEqualToNumber:[NSDecimalNumber notANumber]])
-//    {
-//        return NO;
-//    }
-//    return YES;
-//}
 
 
 -(IBAction)RadioNoClick:(id)sender{
@@ -633,7 +388,8 @@
 }
 
 - (IBAction)doSubmit:(UIButton *)sender{
-    [self dologin];
+//    [self dologin];
+    [self dologin2];
 }
 
 
@@ -819,16 +575,6 @@
 -(void)addaguest{
     
     donext=1;
-    //    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    //    HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    //    [self.navigationController.view addSubview:HUD];
-    //    HUD.labelText=@"        Saving...        ";
-    //
-    //    HUD.progress=0;
-    //    [HUD layoutSubviews];
-    //    HUD.dimBackground = YES;
-    //    HUD.delegate = self;
-    //    [HUD show:YES];
     
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
@@ -879,27 +625,29 @@
     
     Reachability* curReach  = [Reachability reachabilityWithHostName: @"ws.buildersaccess.com"];
     NetworkStatus netStatus = [curReach currentReachabilityStatus];
-    
-    if (netStatus ==NotReachable) {
+//    NSLog(@"%@", netStatus);
+    if (netStatus == NotReachable) {
         [HUD hide];
-        guestsubmit *gb =[guestsubmit alloc];
-        if (![[Mysql TrimText:self.realtorfirstnameField.text]isEqualToString:@""]) {
-            if ([[Mysql TrimText:self.brokernameField.text] isEqualToString:@""]) {
-                gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text]];
-            }else{
-                gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@\nRealtor Company: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text], [Mysql TrimText:self.brokernameField.text]];
-            }
-        }else{
-            gb.addmsg=@"No Realtor";
-        }
-        gb.managedObjectContext=self.managedObjectContext;
-        gb.commnunitynm=self.commnunitynm;
-        gb.idcia=self.idcia;
-        
-        
-        
-        
-        [self.navigationController pushViewController:gb animated:NO];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FromNewGuest"];
+        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:2] animated:NO];
+//        guestsubmit *gb =[guestsubmit alloc];
+//        if (![[Mysql TrimText:self.realtorfirstnameField.text]isEqualToString:@""]) {
+//            if ([[Mysql TrimText:self.brokernameField.text] isEqualToString:@""]) {
+//                gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text]];
+//            }else{
+//                gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@\nRealtor Company: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text], [Mysql TrimText:self.brokernameField.text]];
+//            }
+//        }else{
+//            gb.addmsg=@"No Realtor";
+//        }
+//        gb.managedObjectContext=self.managedObjectContext;
+//        gb.commnunitynm=self.commnunitynm;
+//        gb.idcia=self.idcia;
+//        
+//        
+//        
+//        
+//        [self.navigationController pushViewController:gb animated:NO];
     }else{
         rtnlist=nil;
         NSString *msg;
@@ -932,10 +680,6 @@
         [ws xUpdCommunity2:self action:@selector(afterxUpdCommunity2222:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] guestData:tt EquipmentType:@"5"];
         
     }
-    
-    
-    
-    
 }
 
 - (void) afterxUpdCommunity2222: (id) value {
@@ -967,20 +711,22 @@
     if (fromsearch) {
         [HUD hide];
         if ([result isEqualToString:@"1"]) {
-            guestsubmit *gb =[guestsubmit alloc];
-            if (![[Mysql TrimText:self.realtorfirstnameField.text]isEqualToString:@""]) {
-                if ([[Mysql TrimText:self.brokernameField.text] isEqualToString:@""]) {
-                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text]];
-                }else{
-                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@\nRealtor Company: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text], [Mysql TrimText:self.brokernameField.text]];
-                }
-            }else{
-                gb.addmsg=@"No Realtor";
-            }
-            gb.managedObjectContext=self.managedObjectContext;
-            gb.idcia=self.idcia;
-            gb.commnunitynm=self.commnunitynm;
-            [self.navigationController pushViewController:gb animated:NO];
+//            guestsubmit *gb =[guestsubmit alloc];
+//            if (![[Mysql TrimText:self.realtorfirstnameField.text]isEqualToString:@""]) {
+//                if ([[Mysql TrimText:self.brokernameField.text] isEqualToString:@""]) {
+//                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text]];
+//                }else{
+//                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@\nRealtor Company: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text], [Mysql TrimText:self.brokernameField.text]];
+//                }
+//            }else{
+//                gb.addmsg=@"No Realtor";
+//            }
+//            gb.managedObjectContext=self.managedObjectContext;
+//            gb.idcia=self.idcia;
+//            gb.commnunitynm=self.commnunitynm;
+//            [self.navigationController pushViewController:gb animated:NO];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FromNewGuest"];
+            [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:2] animated:NO];
         }else if ([result isEqualToString:@"-1"] || [result isEqualToString:@"0"]){
             UIAlertView *alert = [self getErrorAlert: @"Update fail. Please try again later."];
             [alert show];
@@ -1018,23 +764,25 @@
                 
             }
             
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FromNewGuest"];
+            [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:2] animated:NO];
             
-            guestsubmit *gb =[guestsubmit alloc];
-            if (![[Mysql TrimText:self.realtorfirstnameField.text]isEqualToString:@""]) {
-                if ([[Mysql TrimText:self.brokernameField.text] isEqualToString:@""]) {
-                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text]];
-                }else{
-                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@\nRealtor Company: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text], [Mysql TrimText:self.brokernameField.text]];
-                }
-            }else{
-                gb.addmsg=@"No Realtor";
-            }
-            gb.idcia=self.idcia;
-            gb.commnunitynm=self.commnunitynm;
-            gb.managedObjectContext=self.managedObjectContext;
-            
-            
-            [self.navigationController pushViewController:gb animated:NO];
+//            guestsubmit *gb =[guestsubmit alloc];
+//            if (![[Mysql TrimText:self.realtorfirstnameField.text]isEqualToString:@""]) {
+//                if ([[Mysql TrimText:self.brokernameField.text] isEqualToString:@""]) {
+//                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text]];
+//                }else{
+//                    gb.addmsg = [NSString stringWithFormat:@"Agent First Name: %@\nAgent Last Name: %@\nRealtor Company: %@", [Mysql TrimText:self.realtorfirstnameField.text], [Mysql TrimText:self.realtorlastnameField.text], [Mysql TrimText:self.brokernameField.text]];
+//                }
+//            }else{
+//                gb.addmsg=@"No Realtor";
+//            }
+//            gb.idcia=self.idcia;
+//            gb.commnunitynm=self.commnunitynm;
+//            gb.managedObjectContext=self.managedObjectContext;
+//            
+//            
+//            [self.navigationController pushViewController:gb animated:NO];
         }
         
     }
@@ -1048,40 +796,6 @@
         pc.delegate = self;
     }
 }
-
-//-(void)popupscreen5{
-//    [self popupscreen:4];
-//}
-
-//-(void)popupscreen:(int)xtag{
-//
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"\n\n\n\n\n\n\n\n\n" delegate:nil
-//                                                    cancelButtonTitle:nil
-//                                               destructiveButtonTitle:@"Select"
-//                                                    otherButtonTitles:nil];
-//
-//
-//
-//    [actionSheet setTag:xtag];
-//    actionSheet.delegate=self;
-//
-//    if (ddpicker ==nil) {
-////         pickerhear =[[NSMutableArray alloc]initWithObjects:@"-Please Select-", @"Our Website", @"Drive by", @"HAR", @"Google", @"Yahoo", @"Friend/Relative", @"Sign", @"Realtor", @"Billboard", @"Magazine", @"Newspaper", @"Other", nil];
-//        pickerhear =[[NSMutableArray alloc]initWithObjects:@"-Please Select-", @"Our Website", @"HAR", @"Drive by", @"Other Website", @"Word of Mouth", nil];
-//
-//        ddpicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 370, 200)];
-//        ddpicker.showsSelectionIndicator = YES;
-//    }
-//    ddpicker.delegate = self;
-//    ddpicker.dataSource = self;
-//    ddpicker.tag=xtag;
-//    [actionSheet addSubview:ddpicker];
-//    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-//
-//        [actionSheet showFromRect:hearField.frame inView:sv animated:NO];
-//
-//
-//}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -1307,16 +1021,6 @@
     if (donext ==3) {
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:NO];
     }else if(donext==2){
-        //        HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-        //        HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-        //        [self.navigationController.view addSubview:HUD];
-        //        HUD.labelText=@"       Updating...       ";
-        //
-        //        HUD.progress=0;
-        //        [HUD layoutSubviews];
-        //        HUD.dimBackground = YES;
-        //        HUD.delegate = self;
-        //        [HUD show:YES];
         
         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
         [self.navigationController.view addSubview:HUD];

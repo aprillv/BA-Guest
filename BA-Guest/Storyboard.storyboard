@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Fyn-MV-bhT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Fyn-MV-bhT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -727,12 +727,6 @@
                                     <action selector="logout:" destination="H3b-c9-caY" eventType="touchUpInside" id="IvQ-8y-hMg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for visiting " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY8-ro-xC6">
-                                <rect key="frame" x="20" y="225" width="178" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umm-fG-zR3">
                                 <rect key="frame" x="571" y="383" width="233" height="133"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -763,8 +757,8 @@
                                     <action selector="CreateNewGuest:" destination="H3b-c9-caY" eventType="touchUpInside" id="0gF-AG-aKD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pff-qf-xI0">
-                                <rect key="frame" x="208" y="221" width="49" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pff-qf-xI0">
+                                <rect key="frame" x="20" y="221" width="49" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -773,21 +767,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qrc-jb-dFe" firstAttribute="leading" secondItem="vAf-NS-dV1" secondAttribute="leadingMargin" constant="-20" id="5Mv-c8-ez3"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="FY8-ro-xC6" secondAttribute="leading" id="5Rp-SP-VNM"/>
-                            <constraint firstItem="FY8-ro-xC6" firstAttribute="top" secondItem="qrc-jb-dFe" secondAttribute="bottom" constant="21" id="5is-ea-xix"/>
+                            <constraint firstItem="w2l-W8-0m1" firstAttribute="top" secondItem="qrc-jb-dFe" secondAttribute="bottom" constant="179" id="7EB-Yf-PSu"/>
                             <constraint firstItem="qrc-jb-dFe" firstAttribute="top" secondItem="fkz-Ix-bCt" secondAttribute="bottom" constant="120" id="7xe-kZ-NSQ"/>
+                            <constraint firstItem="pff-qf-xI0" firstAttribute="top" secondItem="qrc-jb-dFe" secondAttribute="bottom" constant="17" id="8l6-07-CF0"/>
                             <constraint firstItem="Qtc-X2-1yq" firstAttribute="bottom" secondItem="1xT-HX-Hw8" secondAttribute="bottom" id="JJU-vE-ceW"/>
                             <constraint firstItem="nWa-R2-ewJ" firstAttribute="centerY" secondItem="1xT-HX-Hw8" secondAttribute="centerY" id="Qt1-T9-s3Z"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pff-qf-xI0" secondAttribute="leading" id="UiN-7u-sZB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qrc-jb-dFe" secondAttribute="trailing" constant="-20" id="XRE-eB-Wr4"/>
-                            <constraint firstItem="pff-qf-xI0" firstAttribute="leading" secondItem="FY8-ro-xC6" secondAttribute="trailing" constant="10" id="Yjy-Uj-QLs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="umm-fG-zR3" secondAttribute="trailing" constant="200" id="dWD-Ub-DeH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qtc-X2-1yq" secondAttribute="trailing" constant="-1" id="e3B-OY-9zK"/>
-                            <constraint firstItem="pff-qf-xI0" firstAttribute="baseline" secondItem="FY8-ro-xC6" secondAttribute="baseline" id="fEw-sW-pJg"/>
                             <constraint firstItem="w2l-W8-0m1" firstAttribute="leading" secondItem="vAf-NS-dV1" secondAttribute="leadingMargin" constant="200" id="fmX-6o-NjO"/>
                             <constraint firstItem="umm-fG-zR3" firstAttribute="centerY" secondItem="w2l-W8-0m1" secondAttribute="centerY" id="kzc-v9-43F"/>
                             <constraint firstItem="nWa-R2-ewJ" firstAttribute="centerX" secondItem="vAf-NS-dV1" secondAttribute="centerX" id="l0k-Kh-6Pm"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1xT-HX-Hw8" secondAttribute="leading" id="nII-er-qak"/>
-                            <constraint firstItem="w2l-W8-0m1" firstAttribute="top" secondItem="FY8-ro-xC6" secondAttribute="bottom" constant="136" id="qEd-a1-g3K"/>
                             <constraint firstItem="1xT-HX-Hw8" firstAttribute="top" secondItem="fkz-Ix-bCt" secondAttribute="bottom" constant="8" id="yOm-bb-sgB"/>
                         </constraints>
                     </view>
@@ -1396,7 +1388,7 @@
         <image name="Lovetthomes-LOGO" width="241" height="100"/>
         <image name="back" width="30" height="30"/>
         <image name="balogo" width="100" height="65"/>
-        <image name="chk" width="46" height="46"/>
+        <image name="chk" width="32" height="32"/>
         <image name="rdo" width="44" height="44"/>
         <image name="rdoed" width="44" height="44"/>
     </resources>
