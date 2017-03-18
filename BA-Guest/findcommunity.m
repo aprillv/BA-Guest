@@ -195,8 +195,9 @@
                 [alert show];
             }else{
                 wcfService *service =[wcfService service];
-                
+//                NSLog(@"%@ %@", [userInfo getUserName], [userInfo getUserPwd]);
                 [service xGetCommunity:self action:@selector(xGetMasterCiaHandler:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] EquipmentType: @"3"];
+//                NSLog(@"%@ %@", [userInfo getUserName], [userInfo getUserPwd]);
             }
         }else if(donext==2){
             NSIndexPath *indexPath = [self.ciatbview indexPathForSelectedRow];

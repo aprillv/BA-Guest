@@ -623,6 +623,7 @@
         wcfService* service = [wcfService service];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         
+        
         [service xGetCommunity:self action:@selector(vGetCiaListHandler:) xemail: [userInfo getUserName] xpassword: [[userInfo getUserPwd] copy] EquipmentType:@"3"];
     }
 }

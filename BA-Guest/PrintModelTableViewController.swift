@@ -9,7 +9,7 @@
 import UIKit
 protocol ToDoPrintDelegate
 {
-    func GoToPrint(modelNm: String)
+    func GoToPrint(_ modelNm: String)
 }
 class PrintModelTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
     // MARK: - Constanse
@@ -19,11 +19,11 @@ class PrintModelTableViewController: UIViewController, UITableViewDataSource, UI
     
     
     
-    @IBAction func dismissSelf(sender: UITapGestureRecognizer) {
+    @IBAction func dismissSelf(_ sender: UITapGestureRecognizer) {
         //        print(sender)
         //        let point = sender.locationInView(view)
         //        if !CGRectContainsPoint(tableview.frame, point) {
-        self.dismissViewControllerAnimated(true){}
+        self.dismiss(animated: true){}
         //        }
         
         
@@ -33,9 +33,9 @@ class PrintModelTableViewController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet var tablex: NSLayoutConstraint!
     @IBOutlet var tabley: NSLayoutConstraint!
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        let point = touch.locationInView(view)
-        return !CGRectContainsPoint(tableview.frame, point)
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let point = touch.location(in: view)
+        return !tableview.frame.contains(point)
     }
     @IBOutlet var tableview: UITableView!{
         didSet{
@@ -49,7 +49,7 @@ class PrintModelTableViewController: UIViewController, UITableViewDataSource, UI
         //        view.superview?.bounds = CGRect(x: 0, y: 0, width: tableview.frame.width, height: 44 * CGFloat(5))
     }
     
-    private struct constants{
+    fileprivate struct constants{
         static let Title : String = "HOW DID YOU HEAR ABOUT US"
         static let CellIdentifier : String = "Address Cell Identifier"
         
@@ -60,6 +60,7 @@ class PrintModelTableViewController: UIViewController, UITableViewDataSource, UI
     var printList: [String] = [
         "-Please Select-"
         , "Our Website"
+        , "Social Media"
         , "HAR"
         , "Drive By"
         , "Other Website"
@@ -76,30 +77,30 @@ class PrintModelTableViewController: UIViewController, UITableViewDataSource, UI
         
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return printList.count
     }
     
     
     
-    func touched(tap : UITapGestureRecognizer){
+    func touched(_ tap : UITapGestureRecognizer){
        
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(constants.cellReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: constants.cellReuseIdentifier, for: indexPath)
         cell.textLabel?.text = printList[indexPath.row]
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.dismissViewControllerAnimated(true){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.dismiss(animated: true){
             if self.delegate != nil {
                 self.delegate?.GoToPrint(self.printList[indexPath.row])
             }

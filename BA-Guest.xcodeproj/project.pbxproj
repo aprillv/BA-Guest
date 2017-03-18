@@ -640,6 +640,8 @@
 				TargetAttributes = {
 					B12D1E5B1880D3C0004C8CF0 = {
 						DevelopmentTeam = 7D8CVP7EK4;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -895,7 +897,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7D8CVP7EK4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BA-Guest/BA-Guest-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -906,10 +909,13 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ba.GuestRegistration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5958b5a0-97e9-4301-9dca-c20420b0cebb";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
+				PROVISIONING_PROFILE_SPECIFIER = BAGuest;
 				SWIFT_OBJC_BRIDGING_HEADER = "BA-Guest/views/BA-Guest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -921,7 +927,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 7D8CVP7EK4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BA-Guest/BA-Guest-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -932,9 +939,12 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ba.GuestRegistration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5958b5a0-97e9-4301-9dca-c20420b0cebb";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
+				PROVISIONING_PROFILE_SPECIFIER = BAGuest;
 				SWIFT_OBJC_BRIDGING_HEADER = "BA-Guest/views/BA-Guest-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
