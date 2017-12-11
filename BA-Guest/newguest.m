@@ -674,9 +674,41 @@
         
         //        NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, [steve valueForKey:@"rphonenumber"], [steve valueForKey:@"remail"]  ];
         
-        NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
+//        NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
         
-        //        NSLog(@"%@", tt);
+        NSDictionary *param = @{@"IdWeb": self.idweb
+                                , @"RealtorName": [steve valueForKey:@"brokernm"]
+                                , @"AgentFName": [steve valueForKey:@"realtorfirstnm"]
+                                , @"AgentLName": [steve valueForKey:@"realtorlastnm"]
+                                , @"IdCia": self.idcia
+                                , @"IdSub": self.idsub
+                                , @"WebNm": self.commnunitynm
+                                , @"FirstNm": [steve valueForKey:@"firstNm"]
+                                , @"LastNm": [steve valueForKey:@"lastNm"]
+                                , @"PhoneNo": [steve valueForKey:@"phonenumber"]
+                                , @"Email": [steve valueForKey:@"email"]
+                                , @"HearAboutUs": [steve valueForKey:@"hearaboutus"]
+                                , @"Sendyn": [steve valueForKey:@"sendyn"]
+                                , @"Msg": msg
+                                , @"Refdate": [NSString stringWithFormat:@"%@", [steve valueForKey:@"refdate"]]
+                                , @"IdwebArea": self.idarea
+                                , @"Realtoryn": ra
+                                , @"RealtorPhoneNo": @" "
+                                , @"RealtorEmail": [steve valueForKey:@"remail"]
+                                };
+        //        NSLog([NSString stringWithFormat:@"%@", param]);
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:param
+                                                           options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                             error:&error];
+        
+        NSString *tt = @"";
+        if (! jsonData) {
+            NSLog(@"Got an error: %@", error);
+        } else {
+            tt = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        }
+        
         wcfService *ws =[wcfService service];
         [ws xUpdCommunity2:self action:@selector(afterxUpdCommunity2222:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] guestData:tt EquipmentType:@"5"];
         
@@ -1162,10 +1194,41 @@
             }
             
             //           NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, [steve valueForKey:@"rphonenumber"], [steve valueForKey:@"remail"]  ];
+//
+//            NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
             
-            NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
+            NSDictionary *param = @{@"IdWeb": self.idweb
+                                    , @"RealtorName": [steve valueForKey:@"brokernm"]
+                                    , @"AgentFName": [steve valueForKey:@"realtorfirstnm"]
+                                    , @"AgentLName": [steve valueForKey:@"realtorlastnm"]
+                                    , @"IdCia": self.idcia
+                                    , @"IdSub": self.idsub
+                                    , @"WebNm": self.commnunitynm
+                                    , @"FirstNm": [steve valueForKey:@"firstNm"]
+                                    , @"LastNm": [steve valueForKey:@"lastNm"]
+                                    , @"PhoneNo": [steve valueForKey:@"phonenumber"]
+                                    , @"Email": [steve valueForKey:@"email"]
+                                    , @"HearAboutUs": [steve valueForKey:@"hearaboutus"]
+                                    , @"Sendyn": [steve valueForKey:@"sendyn"]
+                                    , @"Msg": msg
+                                    , @"Refdate": [NSString stringWithFormat:@"%@", [steve valueForKey:@"refdate"]]
+                                    , @"IdwebArea": self.idarea
+                                    , @"Realtoryn": ra
+                                    , @"RealtorPhoneNo": @" "
+                                    , @"RealtorEmail": [steve valueForKey:@"remail"]
+                                    };
+            //        NSLog([NSString stringWithFormat:@"%@", param]);
+            NSError *error;
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:param
+                                                               options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                 error:&error];
             
-            
+            NSString *tt = @"";
+            if (! jsonData) {
+                NSLog(@"Got an error: %@", error);
+            } else {
+                tt = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            }
             
             //                    NSLog(@"%@", tt);
             wcfService *ws =[wcfService service];
