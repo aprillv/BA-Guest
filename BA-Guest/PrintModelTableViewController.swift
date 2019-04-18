@@ -66,6 +66,7 @@ class PrintModelTableViewController: UIViewController, UITableViewDataSource, UI
         , "Other Website"
         , "Word of Mouth"
         , "Realtor"
+        , "Zillow"
     ]
     
     override func viewDidLoad() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class communityCell: UITableViewCell {
+@objcMembers class communityCell: UITableViewCell {
 
     @IBOutlet var ciaName: UILabel!
     @IBOutlet var cityName: UILabel!
@@ -60,7 +60,7 @@ class communityCell: UITableViewCell {
         v.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([leadingConstraint, trailingConstraint, bottomConstraint, heightContraint])
     }
-    func setCellContent(_ item : wcfCommunityItem){
+    public func setCellContent(_ item : wcfCommunityItem){
         ciaName.text = item.ciaName
         cityName.text = item.city
         areaName.text = item.webArea

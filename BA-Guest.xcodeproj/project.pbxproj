@@ -650,6 +650,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = B12D1E531880D3BF004C8CF0;
@@ -909,12 +910,12 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ba.GuestRegistration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5958b5a0-97e9-4301-9dca-c20420b0cebb";
+				PROVISIONING_PROFILE = "c7fd6297-98fc-4b04-905c-921e16a7937b";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
 				PROVISIONING_PROFILE_SPECIFIER = BAGuest;
 				SWIFT_OBJC_BRIDGING_HEADER = "BA-Guest/views/BA-Guest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -943,7 +944,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
 				PROVISIONING_PROFILE_SPECIFIER = BAGuest;
 				SWIFT_OBJC_BRIDGING_HEADER = "BA-Guest/views/BA-Guest-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
