@@ -21,6 +21,7 @@
 	NSString* _LastNm;
 	NSString* _Msg;
 	NSString* _PhoneNo;
+    NSString* _priority;
 	NSString* _RealtorEmail;
 	NSString* _RealtorName;
 	NSString* _RealtorPhoneNo;
@@ -43,6 +44,7 @@
 	@property (retain, nonatomic) NSString* IdwebArea;
 	@property (retain, nonatomic) NSString* LastNm;
 	@property (retain, nonatomic) NSString* Msg;
+    @property (retain, nonatomic) NSString* priority;
 	@property (retain, nonatomic) NSString* PhoneNo;
 	@property (retain, nonatomic) NSString* RealtorEmail;
 	@property (retain, nonatomic) NSString* RealtorName;

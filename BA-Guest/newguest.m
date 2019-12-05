@@ -45,10 +45,19 @@
 
 - (IBAction)doClear:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *priorityLowBtn;
+@property (weak, nonatomic) IBOutlet UIButton *priorityMediumBtn;
+@property (weak, nonatomic) IBOutlet UIButton *priorityHighBtn;
+@property (weak, nonatomic) IBOutlet UILabel *priorityLowLbl;
+@property (weak, nonatomic) IBOutlet UILabel *priorityMediumLbl;
+@property (weak, nonatomic) IBOutlet UILabel *priorityHighLbl;
+- (IBAction)selPriority:(UIButton *)sender;
+
 //@property (nonatomic, strong) IQKeyboardReturnKeyHandler    *returnKeyHandler;
 
 @end
 
+//hearaboutus 在本地数据库中这个字段存储了【hearaboutus;priority】 这么做是为了用户更新app的时候不需要卸载app，因为改动数据库会导致app crash
 @implementation newguest{
     UIImageView *iv;
     UIPickerView *ddpicker;
@@ -121,6 +130,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    if (!self.fromsearch) {
+        ei = [[wcfGuestEntryItem1 alloc] init];
+         ei.priority = @"2 - Medium";
+    }
     
     contentHeight = self.sv2.frame.size.height;
     
@@ -130,7 +143,10 @@
         self.cialogo.image = [UIImage imageNamed:@"InTownHomes-LOGO"];
     }
     
-    
+//"1 - Low", "2 - Medium", "3 - High"
+//    [self.priorityBtn setTitle: @"2 - Medium" forState: UIControlStateNormal];
+   
+//    NSLog(@"ei.priority %@", ei.priority);
     self.communityLbl.text = commnunitynm;
     
     self.SendMelbl.text=[NSString stringWithFormat:@"Send me updated information about %@ and this community.", cianm];
@@ -594,7 +610,7 @@
     
     [steve setValue:[Mysql TrimText:self.firstnameField.text] forKey:@"firstNm"];
     [steve setValue:[Mysql TrimText:self.lastnameField.text] forKey:@"lastNm"];
-    [steve setValue:self.hearBtn.currentTitle forKey:@"hearaboutus"];
+    [steve setValue:[NSString stringWithFormat:@"%@;%@", self.hearBtn.currentTitle, ei.priority] forKey:@"hearaboutus"];
     NSString *js= [NSString stringWithFormat:@"%@-%@-%@",
                    [self.phonenoField.text substringWithRange:NSMakeRange(0, 3)],
                    [self.phonenoField.text substringWithRange:NSMakeRange(3, 3)],
@@ -676,18 +692,30 @@
         
 //        NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
         
+        NSString *tmp =[steve valueForKey:@"hearaboutus"];
+        NSString *hearaboutus;
+        NSString *priority;
+        if ([tmp containsString:@";"]) {
+            NSInteger loc = [tmp rangeOfString:@";"].location;
+            hearaboutus = [tmp substringToIndex:loc];
+            priority = [tmp substringFromIndex:loc + 1];
+        }else{
+            hearaboutus = tmp;
+            priority = @"2 - Medium";
+        }
         NSDictionary *param = @{@"IdWeb": self.idweb
                                 , @"RealtorName": [steve valueForKey:@"brokernm"]
                                 , @"AgentFName": [steve valueForKey:@"realtorfirstnm"]
                                 , @"AgentLName": [steve valueForKey:@"realtorlastnm"]
                                 , @"IdCia": self.idcia
                                 , @"IdSub": self.idsub
+                                , @"priority": priority
                                 , @"WebNm": self.commnunitynm
                                 , @"FirstNm": [steve valueForKey:@"firstNm"]
                                 , @"LastNm": [steve valueForKey:@"lastNm"]
                                 , @"PhoneNo": [steve valueForKey:@"phonenumber"]
                                 , @"Email": [steve valueForKey:@"email"]
-                                , @"HearAboutUs": [steve valueForKey:@"hearaboutus"]
+                                , @"HearAboutUs": hearaboutus
                                 , @"Sendyn": [steve valueForKey:@"sendyn"]
                                 , @"Msg": msg
                                 , @"Refdate": [NSString stringWithFormat:@"%@", [steve valueForKey:@"refdate"]]
@@ -696,7 +724,7 @@
                                 , @"RealtorPhoneNo": @" "
                                 , @"RealtorEmail": [steve valueForKey:@"remail"]
                                 };
-        //        NSLog([NSString stringWithFormat:@"%@", param]);
+                NSLog([NSString stringWithFormat:@"%@", param]);
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:param
                                                            options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
@@ -708,7 +736,7 @@
         } else {
             tt = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         }
-        
+        NSLog(tt);
         wcfService *ws =[wcfService service];
         [ws xUpdCommunity2:self action:@selector(afterxUpdCommunity2222:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] guestData:tt EquipmentType:@"5"];
         
@@ -938,7 +966,19 @@
     
     
     if (fromsearch) {
-        //                NSLog(@"%@", ei);
+       
+        for(int i = 100; i < 103; i++) {
+            UILabel *lbl = [self.sv2 viewWithTag:i + 10];
+//            NSLog(lbl.text);
+            UIButton *btn = [self.sv2 viewWithTag:i];
+            if ([lbl.text isEqualToString: ei.priority]) {
+//                NSLog(@"iiii%@", ei.priority);
+                [btn setImage:[UIImage imageNamed:@"rdoed.png"] forState:UIControlStateNormal];
+            }else{
+//                NSLog(@"iiii-");
+                [btn setImage:[UIImage imageNamed:@"rdo.png"] forState:UIControlStateNormal];
+            }
+        }
         self.firstnameField.text=ei.FirstNm;
         self.lastnameField.text=ei.LastNm;
         self.phonenoField.text=ei.PhoneNo;
@@ -1054,7 +1094,7 @@
     if (donext ==3) {
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:NO];
     }else if(donext==2){
-        
+       
         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
         [self.navigationController.view addSubview:HUD];
         HUD.labelText=@"   Submiting...   ";
@@ -1071,7 +1111,8 @@
         [steve setValue:idsub forKey:@"idsub"];
         [steve setValue:[Mysql TrimText:self.firstnameField.text] forKey:@"firstNm"];
         [steve setValue:[Mysql TrimText:self.lastnameField.text] forKey:@"lastNm"];
-        [steve setValue:self.hearBtn.currentTitle forKey:@"hearaboutus"];
+        //hearaboutus store hearaboutus and priority
+        [steve setValue:[NSString stringWithFormat:@"%@;%@", self.hearBtn.currentTitle, ei.priority] forKey:@"hearaboutus"];
         NSString *js= [NSString stringWithFormat:@"%@-%@-%@",
                        [self.phonenoField.text substringWithRange:NSMakeRange(0, 3)],
                        [self.phonenoField.text substringWithRange:NSMakeRange(3, 3)],
@@ -1127,13 +1168,23 @@
                 ra=@"False";
             }
             //                NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, [steve valueForKey:@"rphonenumber"], [steve valueForKey:@"remail"]  ];
+            NSString *tmp =[steve valueForKey:@"hearaboutus"];
+                   NSString *hearaboutus;
+                   NSString *priority;
+                   if ([tmp containsString:@";"]) {
+                       NSInteger loc = [tmp rangeOfString:@";"].location;
+                       hearaboutus = [tmp substringToIndex:loc];
+                       priority = [tmp substringFromIndex:loc + 1];
+                   }else{
+                       hearaboutus = tmp;
+                       priority = @"2 - Medium";
+                   }
+            NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','priority':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb, priority, [steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,hearaboutus, [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
             
-            NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
             
-            
-            //            NSLog(@"%@ %ld", tt, ei.idnumber);
+//                        NSLog(@"%@ %ld", tt, ei.idnumber);
             wcfService *wseee =[wcfService service];
-            
+//            NSLog(@"ei.priority %@", ei.priority);
             [wseee xUpdGuest2:self action:@selector(afterxUpdCommunity2222:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] xidnumber:[NSString stringWithFormat:@"%ld", ei.idnumber] guestData:tt EquipmentType:@"5"];
             
             
@@ -1196,11 +1247,22 @@
             //           NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, [steve valueForKey:@"rphonenumber"], [steve valueForKey:@"remail"]  ];
 //
 //            NSString *tt =[NSString stringWithFormat:@"{'IdWeb':'%@','RealtorName':'%@','AgentFName':'%@','AgentLName':'%@','IdCia':'%@','IdSub':'%@','WebNm':'%@','FirstNm':'%@','LastNm':'%@','PhoneNo':'%@','Email':'%@', 'HearAboutUs':'%@','Sendyn':'%@', 'Msg':'%@','Refdate':'%@','IdwebArea':'%@','Realtoryn':'%@','RealtorPhoneNo':'%@','RealtorEmail':'%@'}", self.idweb,[steve valueForKey:@"brokernm"],[steve valueForKey:@"realtorfirstnm"],[steve valueForKey:@"realtorlastnm"], self.idcia, self.idsub,self.commnunitynm,  [steve valueForKey:@"firstNm"], [steve valueForKey:@"lastNm"], [steve valueForKey:@"phonenumber"], [steve valueForKey:@"email"] ,[steve valueForKey:@"hearaboutus"], [steve valueForKey:@"sendyn"],  msg , [steve valueForKey:@"refdate"],self.idarea, ra, @" ", [steve valueForKey:@"remail"]  ];
-            
+            NSString *tmp =[steve valueForKey:@"hearaboutus"];
+            NSString *hearaboutus;
+            NSString *priority;
+            if ([tmp containsString:@";"]) {
+                NSInteger loc = [tmp rangeOfString:@";"].location;
+                hearaboutus = [tmp substringToIndex:loc];
+                priority = [tmp substringFromIndex:loc + 1];
+            }else{
+                hearaboutus = tmp;
+                priority = @"2 - Medium";
+            }
             NSDictionary *param = @{@"IdWeb": self.idweb
                                     , @"RealtorName": [steve valueForKey:@"brokernm"]
                                     , @"AgentFName": [steve valueForKey:@"realtorfirstnm"]
                                     , @"AgentLName": [steve valueForKey:@"realtorlastnm"]
+                                    , @"priority": priority
                                     , @"IdCia": self.idcia
                                     , @"IdSub": self.idsub
                                     , @"WebNm": self.commnunitynm
@@ -1208,7 +1270,7 @@
                                     , @"LastNm": [steve valueForKey:@"lastNm"]
                                     , @"PhoneNo": [steve valueForKey:@"phonenumber"]
                                     , @"Email": [steve valueForKey:@"email"]
-                                    , @"HearAboutUs": [steve valueForKey:@"hearaboutus"]
+                                    , @"HearAboutUs":hearaboutus
                                     , @"Sendyn": [steve valueForKey:@"sendyn"]
                                     , @"Msg": msg
                                     , @"Refdate": [NSString stringWithFormat:@"%@", [steve valueForKey:@"refdate"]]
@@ -1217,7 +1279,7 @@
                                     , @"RealtorPhoneNo": @" "
                                     , @"RealtorEmail": [steve valueForKey:@"remail"]
                                     };
-            //        NSLog([NSString stringWithFormat:@"%@", param]);
+                    NSLog([NSString stringWithFormat:@"%@", param]);
             NSError *error;
             NSData *jsonData = [NSJSONSerialization dataWithJSONObject:param
                                                                options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
@@ -1230,7 +1292,7 @@
                 tt = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             }
             
-            //                    NSLog(@"%@", tt);
+                                NSLog(@"%@", tt);
             wcfService *ws =[wcfService service];
             [ws xUpdCommunity2:self action:@selector(afterxUpdCommunity2222:) xemail:[userInfo getUserName] xpassword:[userInfo getUserPwd] guestData:tt EquipmentType:@"5"];
         }else{
@@ -1250,5 +1312,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (IBAction)selPriority:(UIButton *)sender {
+    for (int i = 100; i < 103; i++) {
+        UIButton *btn = [self.sv2 viewWithTag: i];
+        [btn setImage:[UIImage imageNamed: sender.tag == i ? @"rdoed.png" : @"rdo.png"] forState:UIControlStateNormal];
+        if (sender.tag == i) {
+            UILabel *lbl = [self.sv2 viewWithTag: i + 10];
+                   ei.priority = lbl.text;
+//                    NSLog(@"==ei.priority %@", ei.priority);
+        }
+        
+    }}
 @end

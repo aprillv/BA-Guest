@@ -306,6 +306,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         wcfCommunityItem *item =[rtnlist objectAtIndex:indexPath.row];
+   
     [cell setCellContent:item];
         return cell;
         

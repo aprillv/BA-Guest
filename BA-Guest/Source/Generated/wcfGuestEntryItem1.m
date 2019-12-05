@@ -36,6 +36,7 @@
 			self.Email = nil;
 			self.FirstNm = nil;
 			self.HearAboutUs = nil;
+            self.priority = nil;
 			self.IdCia = nil;
 			self.IdSub = nil;
 			self.IdWeb = nil;
@@ -68,6 +69,7 @@
 			self.Email = [Soap getNodeValue: node withName: @"Email"];
 			self.FirstNm = [Soap getNodeValue: node withName: @"FirstNm"];
 			self.HearAboutUs = [Soap getNodeValue: node withName: @"HearAboutUs"];
+            self.priority = [Soap getNodeValue:node withName:@"priority"];
 			self.IdCia = [Soap getNodeValue: node withName: @"IdCia"];
 			self.IdSub = [Soap getNodeValue: node withName: @"IdSub"];
 			self.IdWeb = [Soap getNodeValue: node withName: @"IdWeb"];
@@ -111,6 +113,7 @@
 		if (self.Email != nil) [s appendFormat: @"<Email>%@</Email>", [[self.Email stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.FirstNm != nil) [s appendFormat: @"<FirstNm>%@</FirstNm>", [[self.FirstNm stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.HearAboutUs != nil) [s appendFormat: @"<HearAboutUs>%@</HearAboutUs>", [[self.HearAboutUs stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
+        if (self.priority != nil) [s appendFormat: @"<priority>%@</priority>", [[self.priority stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.IdCia != nil) [s appendFormat: @"<IdCia>%@</IdCia>", [[self.IdCia stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.IdSub != nil) [s appendFormat: @"<IdSub>%@</IdSub>", [[self.IdSub stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
 		if (self.IdWeb != nil) [s appendFormat: @"<IdWeb>%@</IdWeb>", [[self.IdWeb stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"] stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]];
@@ -156,6 +159,7 @@
 		if(self.Email != nil) { [self.Email release]; }
 		if(self.FirstNm != nil) { [self.FirstNm release]; }
 		if(self.HearAboutUs != nil) { [self.HearAboutUs release]; }
+        if(self.priority != nil) { [self.priority release]; }
 		if(self.IdCia != nil) { [self.IdCia release]; }
 		if(self.IdSub != nil) { [self.IdSub release]; }
 		if(self.IdWeb != nil) { [self.IdWeb release]; }
