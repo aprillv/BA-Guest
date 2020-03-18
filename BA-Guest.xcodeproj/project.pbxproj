@@ -113,6 +113,7 @@
 		11C497461C6C54FA00A6F039 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		11C497481C6C55E900A6F039 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		11E9B8C91C8971CE0070D7E7 /* CConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CConstants.swift; sourceTree = "<group>"; };
+		4262F1D72421A69900FCDFFB /* BA-Guest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BA-Guest.entitlements"; sourceTree = "<group>"; };
 		4397945A2DFBEC6427A68FA2 /* Pods-BA-Guest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BA-Guest.release.xcconfig"; path = "Pods/Target Support Files/Pods-BA-Guest/Pods-BA-Guest.release.xcconfig"; sourceTree = "<group>"; };
 		5ABD0665F98735D86FAD4AD4 /* Pods-BA-Guest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BA-Guest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BA-Guest/Pods-BA-Guest.debug.xcconfig"; sourceTree = "<group>"; };
 		B10EC8A518A377190096EFA8 /* BA_Guest3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BA_Guest3.xcdatamodel; sourceTree = "<group>"; };
@@ -479,6 +480,7 @@
 		B12D1E671880D3C0004C8CF0 /* BA-Guest */ = {
 			isa = PBXGroup;
 			children = (
+				4262F1D72421A69900FCDFFB /* BA-Guest.entitlements */,
 				11021E651C910D2400FD0FAD /* PrintModelTableViewController.swift */,
 				11163B341C891827001AA556 /* views */,
 				B11FA55C18F3CE9700AF6C5B /* Source */,
@@ -897,9 +899,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "BA-Guest/BA-Guest.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CURRENT_PROJECT_VERSION = 2019.12.05;
+				CURRENT_PROJECT_VERSION = 2020.03.18;
 				DEVELOPMENT_TEAM = 7D8CVP7EK4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BA-Guest/BA-Guest-Prefix.pch";
@@ -914,6 +917,7 @@
 				PROVISIONING_PROFILE = "c7fd6297-98fc-4b04-905c-921e16a7937b";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
 				PROVISIONING_PROFILE_SPECIFIER = BAGuest;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "BA-Guest/views/BA-Guest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -928,9 +932,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "BA-Guest/BA-Guest.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CURRENT_PROJECT_VERSION = 2019.12.05;
+				CURRENT_PROJECT_VERSION = 2020.03.18;
 				DEVELOPMENT_TEAM = 7D8CVP7EK4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BA-Guest/BA-Guest-Prefix.pch";
@@ -945,6 +950,7 @@
 				PROVISIONING_PROFILE = "5958b5a0-97e9-4301-9dca-c20420b0cebb";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "f1780d45-5e56-4de6-9824-e3ec1b4b09e4";
 				PROVISIONING_PROFILE_SPECIFIER = BAGuest;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "BA-Guest/views/BA-Guest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;

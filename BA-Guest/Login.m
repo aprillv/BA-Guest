@@ -84,7 +84,7 @@
 //    let usDateFormat = DateFormatter()
 //    usDateFormat.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy", options: 0, locale: Locale(identifier: "en-US"))
 //    copyrightLbl.title = "Copyright © " + usDateFormat.string(from: currentDate) + " All Rights Reserved"
-    _lblCopyRight.text = @"Copyright © 2019 All Rights Reserved";
+    _lblCopyRight.text = @"Copyright © 2020 All Rights Reserved";
     UIColor *appColor1 = [[UIColor alloc] initWithRed:19/255.0 green:72/255.0 blue:116/255.0 alpha:1];
 //    UIColor *appColor1 = [[UIColor alloc] initWithRed:0 green:164/255.0 blue:236/255.0 alpha:1];
     UIColor *appColor = [[UIColor alloc] initWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
