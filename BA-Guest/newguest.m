@@ -305,21 +305,6 @@
     }
     return ttt;
 }
-//-(IBAction)dddddddd0:(id)sender{
-//    
-//    [self.sv setContentOffset:CGPointMake(0,65) animated:YES];
-//}
-//-(IBAction)dddddddd:(id)sender{
-//    
-//    [self.sv setContentOffset:CGPointMake(0,255+40) animated:YES];
-//}
-//-(IBAction)dddddddd1:(id)sender{
-//    [self.sv setContentOffset:CGPointMake(0,325+40) animated:YES];
-//}
-//
-//-(IBAction)dddddddd2:(id)sender{
-//    [self.sv setContentOffset:CGPointMake(0,395+40) animated:YES];
-//}
 -(void)doneClicked{
 //    [self.sv setContentOffset:CGPointMake(0,0) animated:YES];
     [self.view endEditing: YES];
